@@ -55,6 +55,7 @@
                         <th>التكلفة</th>
                         <th>الحالة</th>
                         <th>العرض</th>
+                        <th>النوع</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -134,6 +135,14 @@
                             <option value="أيجار">أيجار</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                            <label>النوع</label>
+                            <select name="type_id" class="form-control">
+                                @foreach($types as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     <div class="form-group">
                         <label>وصف</label>
                         <input type="text" name="description" class="form-control" placeholder="وصف" required>

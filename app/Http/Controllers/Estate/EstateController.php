@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Estate;
 use App\Estate;
 use App\User;
 use App\Area;
+use App\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
@@ -25,8 +26,12 @@ class EstateController extends Controller
         $estates = Estate::all();
         $areas = Area::all();
         $users = User::all();
+        $types = Type::all();
 
-        return view('admin.estates.index')->withEstates($estates)->withAreas($areas)->withUsers($users);
+        return view('admin.estates.index')->withEstates($estates)
+                                            ->withAreas($areas)
+                                            ->withUsers($users)
+                                            ->withTypes($types);
     }
 
     /**
@@ -54,6 +59,7 @@ class EstateController extends Controller
             'image' => 'required|image',
             'description' => 'required',
             'type' => 'required',
+            'type_id' => 'required',
         ]);
 
         $estate = new Estate();
@@ -63,6 +69,7 @@ class EstateController extends Controller
         $estate->status = Estate::AVALIABLE;
         $estate->description = $request->description;
         $estate->type = $request->type;
+        $estate->type_id = $request->type_id;
     
         //Save our image
         $image = $request->file('image');
@@ -107,8 +114,12 @@ class EstateController extends Controller
         $estate = Estate::findOrFail($id);
         $areas = Area::all();
         $users = User::all();
+        $types = Type::all();
 
-        return view('admin.estates.edit')->withEstate($estate)->withAreas($areas)->withUsers($users);
+        return view('admin.estates.edit')->withEstate($estate)
+                                        ->withAreas($areas)
+                                        ->withUsers($users)
+                                        ->withTypes($types);
     }
 
     /**
@@ -130,6 +141,7 @@ class EstateController extends Controller
             'image' => 'sometimes|image',
             'description' => 'sometimes',
             'type' => 'sometimes',
+            'type_id' => 'sometimes',
             'status' => 'sometimes',
         ]);
 
@@ -176,6 +188,11 @@ class EstateController extends Controller
         if ($request->has('type'))
         {
             $estate->type = $request->type;
+        }
+
+        if ($request->has('type_id'))
+        {
+            $estate->type_id = $request->type_id;
         }
 
         if ($request->has('status'))

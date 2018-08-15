@@ -14,4 +14,9 @@ class Type extends Model
     {
         return $this->hasMany(Area::class);
     }
+
+    public function estates()
+    {
+        return $this->hasMany(Estate::class);
+    }
 }

@@ -1,9 +1,8 @@
-@extends('metronic') 
+@extends('metronic')
 
 <!-- BEGIN CSS -->
 @section('stylesheets')
-<link rel="stylesheet" href="{{asset('vendor/css/bootstrap-fileinput.css')}}" /> 
-@endsection
+<link rel="stylesheet" href="{{asset('vendor/css/bootstrap-fileinput.css')}}" /> @endsection
 <!-- END CSS -->
 
 @section('content')
@@ -44,7 +43,7 @@
     </div>
     <div class="form-group">
         <label>السعر</label>
-    <input type="text" name="price" class="form-control" value="{{$estate->price}}" placeholder="السعر" number required>
+        <input type="text" name="price" class="form-control" value="{{$estate->price}}" placeholder="السعر" number required>
     </div>
     <div class="form-group">
         <label>العرض</label>
@@ -62,8 +61,9 @@
     </div>
     <div class="form-group">
         <label>وصف</label>
-    <input type="text" name="description" class="form-control" value="{{$estate->description}}" placeholder="وصف" required>
+        <input type="text" name="description" class="form-control" value="{{$estate->description}}" placeholder="وصف" required>
     </div>
+    <!-- IMAGE -->
     <label>صورة</label>
     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
         <div class="form-control" data-trigger="fileinput">
@@ -73,10 +73,11 @@
         <span class="input-group-addon btn btn-default btn-file">
             <span class="fileinput-new">Select file</span>
             <span class="fileinput-exists">Change</span>
-        <input type="file" id="image" name="image"  value="{{$estate->image}}">
+            <input type="file" id="image" name="image" value="{{$estate->image}}">
         </span>
         <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
     </div>
+    <!-- END IMAGE -->
     <div class="margin-top-10">
         <button type="submit" class="btn green"> حفظ التعديل </button>
     </div>

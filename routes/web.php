@@ -28,6 +28,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('estates', 'Estate\EstateController');
     Route::resource('markets', 'Market\MarketController');
     Route::resource('properties', 'Property\PropertyController');
+    Route::resource('comments', 'Comment\CommentController');
     
 });
 
