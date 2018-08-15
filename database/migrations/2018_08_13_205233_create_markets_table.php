@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRatesTable extends Migration
+class CreateMarketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateRatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('rates', function (Blueprint $table) {
+        Schema::create('markets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('rate');
+            $table->unsignedInteger('area_id');//
+            $table->unsignedInteger('start_price');
+            $table->unsignedInteger('end_price');
             $table->timestamps();
 
+            $table->foreign('area_id')->references('id')->on('areas');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateRatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rates');
+        Schema::dropIfExists('markets');
     }
 }

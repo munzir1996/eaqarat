@@ -6,18 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rate extends Model
 {
+
+    const UNRATED = '0';
     protected $fillable = [
-        'estate_id', 
-        'user_id',
         'rate', 
      ];
     
-    public function estate()
+    
+
+    public function comments()
     {
-        return $this->belongsTo(Estate::class);
-    }
-    public function user()
-    {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(Comment::class);
     }
 }

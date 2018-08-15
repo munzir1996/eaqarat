@@ -9,10 +9,12 @@ class Estate extends Model
 
     const AVALIABLE = '1';
     const NOTAVALIABLE = '0';
+
+    const RENT = 'rent';
+    const SALE = 'sale';
     
     protected $fillable = [
         'area_id', 
-        'rate_id',
         'user_id',
         'price',
         'status',//Avaliable not
@@ -31,9 +33,9 @@ class Estate extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function rates()
+    public function comments()
     {
-        return $this->hasMany(Rate::class);
+        return $this->hasMany(Comment::class);
     }
 
 }

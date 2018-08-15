@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Metronic | Dashboard</title>
+    <title>Dashboard</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" /> 
     @include('admin._includes._head')
@@ -52,6 +52,7 @@
     @include('admin._includes._footer')
 
     @include('admin._includes._javascript')
+    @include('admin._includes._messages')
 
     @yield('scripts')
 

@@ -26,4 +26,8 @@ class Area extends Model
     {
         return $this->belongsTo(Type::class);
     }
+    public function markets()
+    {
+        return $this->hasMany(Market::class);
+    }
 }

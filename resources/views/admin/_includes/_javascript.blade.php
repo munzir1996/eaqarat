@@ -18,5 +18,12 @@
 <script src="{{asset('vendor/js/quick-sidebar.min.js')}}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="{{asset('vendor/js/toastr.min.js')}}" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS  -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{{asset('vendor/js/ui-toastr.min.js')}}" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
 
 

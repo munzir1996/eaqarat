@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Comment;
 
-use App\Types;
+use App\Comment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
-class TypesController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +43,10 @@ class TypesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Types  $types
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Types $types)
+    public function show(Comment $comment)
     {
         //
     }
@@ -52,10 +54,10 @@ class TypesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Types  $types
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Types $types)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -64,10 +66,10 @@ class TypesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Types  $types
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Types $types)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -75,10 +77,10 @@ class TypesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Types  $types
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Types $types)
+    public function destroy(Comment $comment)
     {
         //
     }

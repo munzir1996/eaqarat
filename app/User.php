@@ -31,9 +31,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function rates()
+    public function comments()
     {
-        return $this->hasMany(Rate::class);
+        return $this->hasMany(Comment::class);
     }
     public function estates()
     {

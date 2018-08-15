@@ -20,8 +20,15 @@ Auth::routes();
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/', 'ControlPanel\ControlPanelController@index')->name('admin');
+    Route::get('profile', 'ControlPanel\ControlPanelController@profile')->name('profile');
     Route::resource('users', 'User\UserController');
-   
+    Route::resource('types', 'Type\TypeController');
+    Route::resource('areas', 'Area\AreaController');
+    Route::resource('rates', 'Rate\RateController');
+    Route::resource('estates', 'Estate\EstateController');
+    Route::resource('markets', 'Market\MarketController');
+    Route::resource('properties', 'Property\PropertyController');
+    
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

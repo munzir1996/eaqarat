@@ -17,4 +17,9 @@ class ControlPanelController extends Controller
         return view('admin.index');
     }
 
+    public function profile()
+    {
+        return view('admin.users.profile');
+    }
+
 }

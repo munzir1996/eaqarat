@@ -16,4 +16,7 @@
 <link href="{{asset('vendor/css/darkblue-rtl.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
 <link href="{{asset('vendor/css/custom-rtl.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="{{asset('vendor/css/toastr-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
 

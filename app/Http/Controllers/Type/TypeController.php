@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Rate;
+namespace App\Http\Controllers\Type;
 
-use App\Rate;
+use App\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
-class RateController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class RateController extends Controller
      */
     public function index()
     {
-        $rates = Rate::all();
+        $types = Type::all();
 
-        return view('admin.rates.index')->withRates($rates);
+        return view('admin.types.index')->withTypes($types);
     }
 
     /**
@@ -40,30 +40,30 @@ class RateController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'rate' => 'required|max:100',
+            'name' => 'required|max:100',
         ]);
 
-        $rate = new Rate();
-        $rate->rate = $request->rate;
+        $type = new Type();
+        $type->name = $request->name;
 
-        if ($rate->save()) {
-            Session::flash('success', '!تمت أضافة التقييم بنجاح');
+        if ($type->save()) {
+            Session::flash('success', '!تمت أضافة النوع بنجاح');
             //Redirect to another page
-		    return redirect()->route('rates.index');
+		    return redirect()->route('types.index');
         }
 
-        Session::flash('error', 'حصل خطااثناء اضافة التقييم الرجاء اعادة المحاولة');
+        Session::flash('error', 'حصل خطااثناء اضافة النوع الرجاء اعادة المحاولة');
         //Redirect to another page
-	    return redirect()->route('rates.index');
+	    return redirect()->route('types.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rate  $rate
+     * @param  \App\Types  $types
      * @return \Illuminate\Http\Response
      */
-    public function show(Rate $rate)
+    public function show(Types $types)
     {
         //
     }
@@ -71,70 +71,71 @@ class RateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rate  $rate
+     * @param  \App\Types  $types
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $rate = rate::findOrFail($id);
+        $type = Type::findOrFail($id);
 
-        return view('admin.rates.edit')->withRate($rate);
+        return view('admin.types.edit')->withType($type);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rate  $rate
+     * @param  \App\Types  $types
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $rate = Rate::findOrFail($id);
+        
+        $type = Type::findOrFail($id);
         $this->validate($request, [
-            'rate' => 'sometimes|max:100',
+            'name' => 'sometimes|max:100',
         ]);
 
 
-        //dd($rate);
-        if ($request->has('rate'))
+        //dd($type);
+        if ($request->has('name'))
         {
-            $rate->rate = $request->rate;
+            $type->name = $request->name;
         }
 
-        //dd($rate);
+        //dd($type);
 
-        if($rate->save()){
+        if($type->save()){
 
             Session::flash('success', 'تم تعديل النوع بنجاح !');
             //Redirect to another page
-		    return redirect()->route('rates.index');
+		    return redirect()->route('types.index');
         }
 
         Session::flash('error', 'حصل خطااثناء تعديل النوع الرجاء اعادة المحاولة');
         //Redirect to another page
-	    return redirect()->route('rates.show', $rate->id);
+	    return redirect()->route('types.show', $type->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rate  $rate
+     * @param  \App\Types  $types
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rate $rate)
+    public function destroy($id)
     {
-        $rate = Rate::findOrFail($id);
+        $type =Type::findOrFail($id);
         
-        if($rate->delete()){
+        if($type->delete()){
 
-            Session::flash('success', 'تم حذف التقييم بنجاح !');
+            Session::flash('success', 'تم حذف النوع بنجاح !');
             //Redirect to another page
-		    return redirect()->route('rates.index');
+		    return redirect()->route('types.index');
         }
 
-        Session::flash('error', 'حصل خطااثناء حذف التقييم الرجاء اعادة المحاولة');
+        Session::flash('error', 'حصل خطااثناء حذف النوع الرجاء اعادة المحاولة');
         //Redirect to another page
-	    return redirect()->route('rates.index');
+	    return redirect()->route('types.index');
     }
 }
