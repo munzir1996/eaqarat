@@ -9,6 +9,7 @@ use Session;
 use Purifier; 
 use Storage;
 use Illuminate\Support\Facades\Input;
+use File;
 
 class PropertyController extends Controller
 {
@@ -56,16 +57,17 @@ class PropertyController extends Controller
         $property->age = $request->age;
     
         //Save our salary_pdf
-        $salary_pdf = Input::file('salary_pdf');
-        //dd($);
+        $salary_pdf = $request->file('salary_pdf');
         $filename = time() . '.' . $salary_pdf->getClientOriginalExtension();
         $location = public_path('file/' . $filename);
+        $salary_pdf->move(public_path('file/'), $filename);
         $property->salary_pdf = $filename;
-
-        //Save our salary_pdf
-        $offical_pdf = Input::file('offical_pdf');
-        $filename = time() . '.' . $offical_pdf->getClientOriginalExtension();
+        
+        //Save our offical_pdf
+        $offical_pdf = $request->file('offical_pdf');
+        $filename = time()+'1' . '.' . $offical_pdf->getClientOriginalExtension();
         $location = public_path('file/' . $filename);
+        $offical_pdf->move(public_path('file/'), $filename);
         $property->offical_pdf = $filename;
         
         //dd($property);
@@ -101,7 +103,9 @@ class PropertyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $property = Property::findOrFail($id);
+
+        return view('admin.properties.edit')->withproperty($property);
     }
 
     /**
@@ -113,7 +117,78 @@ class PropertyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $property = property::findOrFail($id);
+     
+        $this->validate($request, [
+            'name' => 'sometimes',
+            'hire_date' => 'sometimes|integer',
+            'age' => 'sometimes|integer',
+            'salary_pdf' => 'sometimes',
+            'offical_pdf' => 'sometimes',
+        ]);
+
+
+        //dd($property);
+        if ($request->has('name'))
+        {
+            $property->name = $request->name;
+        }
+        if ($request->has('hire_date'))
+        {
+            $property->hire_date = $request->hire_date;
+        }
+        
+        if ($request->has('age'))
+        {
+            $property->age = $request->age;
+        }
+
+        if ($request->has('salary_pdf'))
+        {
+            //Save our salary_pdf
+            $salary_pdf = $request->file('salary_pdf');
+            $filename = time() . '.' . $salary_pdf->getClientOriginalExtension();
+            $location = public_path('file/' . $filename);
+            $salary_pdf->move(public_path('file/'), $filename);
+
+            //Old Path
+            $oldFilename = $property->salary_pdf;
+
+            $property->salary_pdf = $filename;
+
+            //Delete the database
+            File::delete('file/'.$oldFilename);
+        }
+
+        if ($request->has('offical_pdf'))
+        {
+            //Save our offical_pdf
+            $offical_pdf = $request->file('offical_pdf');
+            $filename = time()+'1' . '.' . $offical_pdf->getClientOriginalExtension();
+            $location = public_path('file/' . $filename);
+            $offical_pdf->move(public_path('file/'), $filename);
+
+            //Old Path
+            $oldFilename = $property->offical_pdf;
+
+            $property->offical_pdf = $filename;
+
+            //Delete the database
+            File::delete('file/'.$oldFilename);
+        }
+
+        //dd($property);
+
+        if($property->save()){
+
+            Session::flash('success', 'تم تعديل التمليك بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('propertys.index');
+        }
+
+        Session::flash('error', 'حصل خطااثناء تعديل التمليك الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('properties.show', $property->id);
     }
 
     /**
@@ -125,7 +200,8 @@ class PropertyController extends Controller
     public function destroy($id)
     {
         $property = Property::findOrFail($id);
-        
+        File::delete('file/'.$property->salary_pdf);
+        File::delete('file/'.$property->offical_pdf);
         if($property->delete()){
 
             Session::flash('success', 'تم حذف التمليك بنجاح !');

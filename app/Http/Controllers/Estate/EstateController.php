@@ -151,7 +151,21 @@ class EstateController extends Controller
 
         if ($request->has('image'))
         {
-            $estate->image = $request->image;
+            //Save our image
+            $image = $request->file('image');
+            //dd($image);
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('image/' . $filename);
+            Image::make($image)->resize(800, 400)->save($location);
+
+            //Old Path
+            $oldFilename = $estate->image;
+
+            //New Path
+            $estate->image = $filename;
+
+            //Delete the database
+            File::delete('image/'.$oldFilename);
         }
 
         if ($request->has('description'))
@@ -193,6 +207,7 @@ class EstateController extends Controller
     {
         $estate = Estate::findOrFail($id);
         
+        File::delete('image/'.$estate->image);
         if($estate->delete()){
 
             Session::flash('success', 'تم حذف العقار بنجاح !');

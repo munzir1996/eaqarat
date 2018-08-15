@@ -2,8 +2,6 @@
 
 <!-- BEGIN CSS -->
 @section('stylesheets')
-<link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
-<link rel="stylesheet" href="{{asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/css/bootstrap-fileinput.css')}}" /> 
 @endsection
 <!-- END CSS -->

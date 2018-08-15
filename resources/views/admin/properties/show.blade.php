@@ -46,7 +46,7 @@
                 <div class="row static-info">
                     <div class="col-md-5 name"> شهادة مرتب : </div>
                     <div class="col-md-7 value">
-                        <a href="{{asset('file/'.$property->salary_pdf)}}" class="nav-link nav-toggle">
+                        <a href="{{asset('file/'.$property->salary_pdf.'/'.$property->salary_pdf)}}" class="nav-link nav-toggle">
                             <i class="icon-arrow-down"></i>
                             <span class="title">{{$property->salary_pdf}}</span>
                         </a>
@@ -55,7 +55,7 @@
                     <div class="row static-info">
                         <div class="col-md-5 name"> أقرار شرعي : </div>
                         <div class="col-md-7 value">
-                            <a href="{{asset('file/'.$property->offical_pdf)}}" class="nav-link nav-toggle">
+                            <a href="{{asset('file/'.$property->offical_pdf.'/'.$property->offical_pdf)}}" class="nav-link nav-toggle">
                                 <i class="icon-arrow-down"></i>
                                 <span class="title">{{$property->offical_pdf}}</span>
                             </a>
