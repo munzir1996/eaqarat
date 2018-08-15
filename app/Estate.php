@@ -16,7 +16,6 @@ class Estate extends Model
     protected $fillable = [
         'area_id', 
         'user_id',
-        'type_id',
         'price',
         'status',//Avaliable not
         'image',
@@ -24,10 +23,6 @@ class Estate extends Model
         'type',// rent sale  
      ];
     
-     public function type()
-    {
-        return $this->belongsTo(Type::class);
-    }
     
     public function area()
     {
