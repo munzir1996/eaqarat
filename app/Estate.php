@@ -20,10 +20,10 @@ class Estate extends Model
         'status',//Avaliable not
         'image',
         'description',
-        'type',// rent sale  
+        'type',// rent sale
+        'type_id',  
      ];
-    
-    
+
     public function area()
     {
         return $this->belongsTo(Area::class);
@@ -38,5 +38,10 @@ class Estate extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function type()
+     {
+         return $this->belongsTo(Type::class, 'type_id');
+     }
 
 }

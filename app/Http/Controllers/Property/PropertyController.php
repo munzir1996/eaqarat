@@ -56,21 +56,21 @@ class PropertyController extends Controller
         $property->hire_date = $request->hire_date;
         $property->age = $request->age;
     
-        //Save our salary_pdf
+        //Save salary_pdf
         $salary_pdf = $request->file('salary_pdf');
         $filename = time() . '.' . $salary_pdf->getClientOriginalExtension();
         $location = public_path('file/' . $filename);
         $salary_pdf->move(public_path('file/'), $filename);
         $property->salary_pdf = $filename;
         
-        //Save our offical_pdf
+        //Save offical_pdf
         $offical_pdf = $request->file('offical_pdf');
         $filename = time()+'1' . '.' . $offical_pdf->getClientOriginalExtension();
         $location = public_path('file/' . $filename);
         $offical_pdf->move(public_path('file/'), $filename);
         $property->offical_pdf = $filename;
         
-        //dd($property);
+        // Shows .toaster message
         if ($property->save()) {
             Session::flash('success', '!تمت أضافة العقار بنجاح');
             //Redirect to another page
@@ -145,7 +145,7 @@ class PropertyController extends Controller
 
         if ($request->has('salary_pdf'))
         {
-            //Save our salary_pdf
+            //Save salary_pdf
             $salary_pdf = $request->file('salary_pdf');
             $filename = time() . '.' . $salary_pdf->getClientOriginalExtension();
             $location = public_path('file/' . $filename);
@@ -156,13 +156,13 @@ class PropertyController extends Controller
 
             $property->salary_pdf = $filename;
 
-            //Delete the database
+            //Delete salary_pdf
             File::delete('file/'.$oldFilename);
         }
 
         if ($request->has('offical_pdf'))
         {
-            //Save our offical_pdf
+            //Save offical_pdf
             $offical_pdf = $request->file('offical_pdf');
             $filename = time()+'1' . '.' . $offical_pdf->getClientOriginalExtension();
             $location = public_path('file/' . $filename);
@@ -173,12 +173,11 @@ class PropertyController extends Controller
 
             $property->offical_pdf = $filename;
 
-            //Delete the database
+            //Delete offical_pdf
             File::delete('file/'.$oldFilename);
         }
 
-        //dd($property);
-
+        // Shows .toaster message
         if($property->save()){
 
             Session::flash('success', 'تم تعديل التمليك بنجاح !');
@@ -200,8 +199,12 @@ class PropertyController extends Controller
     public function destroy($id)
     {
         $property = Property::findOrFail($id);
+        //Delete salary_pdf
         File::delete('file/'.$property->salary_pdf);
+        //Delete offical_pdf
         File::delete('file/'.$property->offical_pdf);
+
+        // Shows .toaster message
         if($property->delete()){
 
             Session::flash('success', 'تم حذف التمليك بنجاح !');

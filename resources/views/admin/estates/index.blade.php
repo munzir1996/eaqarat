@@ -59,8 +59,9 @@
                         <th></th>
                     </tr>
                 </thead>
-                @foreach($estates as $estate)
+                
                 <tbody>
+                        @foreach($estates as $estate)
                     <tr>
                         <td>{{$estate->id}}</td>
                         <td>{{$estate->area->name}}</td>
@@ -74,6 +75,7 @@
                             @endif
                         </td>
                         <td>{{$estate->type}}</td>
+                        <td>{{$estate->type()->pluck('name')}}</td>
                         <td>
                             <form action="{{route('estates.destroy', $estate->id)}}" method="POST">
                                 @csrf {{ method_field('DELETE') }}
@@ -88,9 +90,11 @@
                                 </button>
                             </form>
                         </td>
+                        
                     </tr>
+                    @endforeach
                 </tbody>
-                @endforeach
+                
             </table>
         </div>
         <!-- END TABLE -->
@@ -125,6 +129,14 @@
                         </select>
                     </div>
                     <div class="form-group">
+                            <label>النوع</label>
+                            <select name="type_id" class="form-control">
+                                @foreach($types as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    <div class="form-group">
                         <label>السعر</label>
                         <input type="text" name="price" class="form-control" placeholder="السعر" number required>
                     </div>
@@ -135,14 +147,7 @@
                             <option value="أيجار">أيجار</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                            <label>النوع</label>
-                            <select name="type_id" class="form-control">
-                                @foreach($types as $type)
-                                <option value="{{$type->id}}">{{$type->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+        
                     <div class="form-group">
                         <label>وصف</label>
                         <input type="text" name="description" class="form-control" placeholder="وصف" required>

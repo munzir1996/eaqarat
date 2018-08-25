@@ -46,6 +46,7 @@ class TypeController extends Controller
         $type = new Type();
         $type->name = $request->name;
 
+        // Shows .toaster message
         if ($type->save()) {
             Session::flash('success', '!تمت أضافة النوع بنجاح');
             //Redirect to another page
@@ -105,6 +106,7 @@ class TypeController extends Controller
 
         //dd($type);
 
+        // Shows .toaster message
         if($type->save()){
 
             Session::flash('success', 'تم تعديل النوع بنجاح !');
@@ -127,6 +129,7 @@ class TypeController extends Controller
     {
         $type =Type::findOrFail($id);
         
+        // Shows .toaster message
         if($type->delete()){
 
             Session::flash('success', 'تم حذف النوع بنجاح !');

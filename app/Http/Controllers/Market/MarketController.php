@@ -52,6 +52,7 @@ class MarketController extends Controller
         $market->start_price = $request->start_price;
         $market->end_price = $request->end_price;
         
+        // Shows .toaster message
         if ($market->save()) {
             Session::flash('success', '!تمت أضافة البورصة بنجاح');
             //Redirect to another page
@@ -107,7 +108,6 @@ class MarketController extends Controller
         ]);
 
 
-        //dd($market);
         if ($request->has('area_id'))
         {
             $market->area_id = $request->area_id;
@@ -122,8 +122,7 @@ class MarketController extends Controller
             $market->end_price = $request->end_price;
         }
 
-        //dd($market);
-
+        // Shows .toaster message
         if($market->save()){
 
             Session::flash('success', 'تم تعديل البورصة بنجاح !');
@@ -145,7 +144,8 @@ class MarketController extends Controller
     public function destroy($id)
     {
         $market = Market::findOrFail($id);
-        
+
+        // Shows .toaster message
         if($market->delete()){
 
             Session::flash('success', 'تم حذف البورصة بنجاح !');

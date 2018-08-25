@@ -54,6 +54,7 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
 
+        // Shows .toaster message
         if ($user->save()) {
             Session::flash('success', '!تمت أضافة المستخدم بنجاح');
             //Redirect to another page
@@ -63,9 +64,7 @@ class UserController extends Controller
         Session::flash('error', 'حصل خطااثناء اضافة المستخدم الرجاء اعادة المحاولة');
         //Redirect to another page
 	    return redirect()->route('users.index');
-        
-
-        
+         
     }
 
     /**
@@ -103,7 +102,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
      
-        //dd($user);
         $this->validate($request, [
             'name' => 'sometimes|max:100',
             'email' => 'sometimes|email|unique:users,email,' . $id,
@@ -113,7 +111,6 @@ class UserController extends Controller
         ]);
 
 
-        //dd($user);
         if ($request->has('name'))
         {
             $user->name = $request->name;
@@ -138,8 +135,7 @@ class UserController extends Controller
             $user->phone = $request->phone;
         }
 
-        //dd($user);
-
+        // Shows .toaster message
         if($user->save()){
 
             Session::flash('success', 'تم تعديل المستخدم بنجاح !');
@@ -163,6 +159,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         
+        // Shows .toaster message
         if($user->delete()){
 
             Session::flash('success', 'تم حذف المستخدم بنجاح !');

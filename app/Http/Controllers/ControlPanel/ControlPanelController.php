@@ -12,14 +12,19 @@ class ControlPanelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function adminIndex()
     {
         return view('admin.index');
     }
 
-    public function profile()
+    public function adminProfile()
     {
-        return view('admin.users.profile');
+        return view('admin.admins.profile');
+    }
+
+    public function userProfile()
+    {
+        return view('profile');
     }
 
 }

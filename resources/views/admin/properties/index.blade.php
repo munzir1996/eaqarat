@@ -56,8 +56,9 @@
                         <th></th>
                     </tr>
                 </thead>
-                @foreach($properties as $property)
                 <tbody>
+                    
+                @foreach($properties as $property)
                     <tr>
                         <td>{{$property->id}}</td>
                         <td>{{$property->name}}</td>
@@ -78,8 +79,9 @@
                             </form>
                         </td>
                     </tr>
-                </tbody>
+                    
                 @endforeach
+                </tbody>
             </table>
         </div>
         <!-- END TABLE -->

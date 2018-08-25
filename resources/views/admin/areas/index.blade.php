@@ -2,7 +2,8 @@
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
-<link rel="stylesheet" href="{{asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}"> @endsection
+<link rel="stylesheet" href="{{asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}">
+@endsection
 <!-- END CSS -->
 @section('content')
 <!-- BEGIN PAGE-BAR -->
@@ -54,8 +55,9 @@
                         <th></th>
                     </tr>
                 </thead>
-                @foreach($areas as $area)
+                
                 <tbody>
+                        @foreach($areas as $area)
                     <tr>
                         <td>{{$area->id}}</td>
                         <td>{{$area->name}}</td>
@@ -74,8 +76,9 @@
                             </form>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
-                @endforeach
+                
             </table>
         </div>
         <!-- END TABLE -->
@@ -131,11 +134,10 @@
 <script src="{{ asset('vendor/js/datatable.js') }}"></script>
 <script src="{{ asset('vendor/plugins/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}"></script>
-
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#ares-table').DataTable();
+        $('#areas-table').DataTable();
     });
 </script>
 @endsection

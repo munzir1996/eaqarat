@@ -20,6 +20,7 @@ class CreateEstatesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('area_id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('type_id');
             $table->unsignedInteger('price');
             $table->string('status')->default(Estate::AVALIABLE);
             $table->string('image');
@@ -27,6 +28,7 @@ class CreateEstatesTable extends Migration
             $table->string('type');//choose
             $table->timestamps();
 
+            $table->foreign('type_id')->references('id')->on('types');
             $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('user_id')->references('id')->on('users');
         });

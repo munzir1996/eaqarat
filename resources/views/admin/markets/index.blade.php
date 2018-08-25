@@ -2,7 +2,8 @@
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
-<link rel="stylesheet" href="{{asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}"> @endsection
+<link rel="stylesheet" href="{{asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}">
+@endsection
 <!-- END CSS -->
 @section('content')
 <!-- BEGIN PAGE-BAR -->
@@ -54,8 +55,9 @@
                         <th></th>
                     </tr>
                 </thead>
-                @foreach($markets as $market)
+                
                 <tbody>
+                        @foreach($markets as $market)
                     <tr>
                         <td>{{$market->id}}</td>
                         <td>{{$market->area->name}}</td>
@@ -74,8 +76,9 @@
                             </form>
                         </td>
                     </tr>
-                </tbody>
+                    
                 @endforeach
+                </tbody>
             </table>
         </div>
         <!-- END TABLE -->
@@ -132,7 +135,6 @@
 <script src="{{ asset('vendor/js/datatable.js') }}"></script>
 <script src="{{ asset('vendor/plugins/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}"></script>
-
 <script>
     //Datatable
     $(document).ready(function () {

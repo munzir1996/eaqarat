@@ -83,7 +83,7 @@
                         <div class="tab-pane" id="tab_1_2">
 
                             <div class="form-group">
-                                <form action="{{ route('users.update', Auth::user()->id) }}" method="POST">
+                                <form action="{{ route('users.update', $user->id) }}" method="POST">
                                     @csrf {{ method_field('PUT') }}
                                     <label>كلمة المرور الجديدة</label>
                                     <div class="input-group">

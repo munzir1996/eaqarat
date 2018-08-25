@@ -18,5 +18,11 @@
 <!-- END THEME LAYOUT STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link href="{{asset('vendor/css/toastr-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('vendor/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('vendor/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="{{asset('vendor/css/login-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
 

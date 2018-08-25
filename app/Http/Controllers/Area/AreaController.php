@@ -52,6 +52,7 @@ class AreaController extends Controller
         $area->block = $request->block;
         $area->type_id = $request->type_id;
 
+        // Shows .toaster message
         if ($area->save()) {
             Session::flash('success', '!تمت أضافة المنطقه بنجاح');
             //Redirect to another page
@@ -121,6 +122,7 @@ class AreaController extends Controller
 
         //dd($type);
 
+        // Shows .toaster message
         if($area->save()){
 
             Session::flash('success', 'تم تعديل النوع بنجاح !');
@@ -139,8 +141,20 @@ class AreaController extends Controller
      * @param  \App\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Area $area)
+    public function destroy($id)
     {
-        //
+        $area = Area::findOrFail($id);
+        
+        // Shows .toaster message
+        if($area->delete()){
+
+            Session::flash('success', 'تم حذف المنطقه بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('areas.index');
+        }
+
+        Session::flash('error', 'حصل خطااثناء حذف المنطقه الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('areas.index');
     }
 }

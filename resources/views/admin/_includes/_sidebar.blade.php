@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li class="nav-item start ">
-                        <a href="dashboard_2.html" class="nav-link ">
+                        <a href="{{route('admins.index')}}" class="nav-link ">
                             <i class="icon-user-follow"></i>
                             <span class="title">الأدمن</span>
                         </a>

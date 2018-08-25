@@ -46,6 +46,7 @@ class RateController extends Controller
         $rate = new Rate();
         $rate->rate = $request->rate;
 
+        // Shows .toaster message
         if ($rate->save()) {
             Session::flash('success', '!تمت أضافة التقييم بنجاح');
             //Redirect to another page
@@ -95,15 +96,12 @@ class RateController extends Controller
             'rate' => 'sometimes|max:100',
         ]);
 
-
-        //dd($rate);
         if ($request->has('rate'))
         {
             $rate->rate = $request->rate;
         }
 
-        //dd($rate);
-
+        // Shows .toaster message
         if($rate->save()){
 
             Session::flash('success', 'تم تعديل النوع بنجاح !');
@@ -126,6 +124,7 @@ class RateController extends Controller
     {
         $rate = Rate::findOrFail($id);
         
+        // Shows .toaster message
         if($rate->delete()){
 
             Session::flash('success', 'تم حذف التقييم بنجاح !');

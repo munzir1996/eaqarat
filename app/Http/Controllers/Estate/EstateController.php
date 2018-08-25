@@ -27,7 +27,7 @@ class EstateController extends Controller
         $areas = Area::all();
         $users = User::all();
         $types = Type::all();
-
+        
         return view('admin.estates.index')->withEstates($estates)
                                             ->withAreas($areas)
                                             ->withUsers($users)
@@ -55,30 +55,30 @@ class EstateController extends Controller
         $this->validate($request, [
             'area_id' => 'required|max:100',
             'user_id' => 'required|max:100',
+            'type_id' => 'required',
             'price' => 'required|integer',
             'image' => 'required|image',
             'description' => 'required',
             'type' => 'required',
-            'type_id' => 'required',
         ]);
 
         $estate = new Estate();
         $estate->area_id = $request->area_id;
         $estate->user_id = $request->user_id;
+        $estate->type_id = $request->type_id;
         $estate->price = $request->price;
         $estate->status = Estate::AVALIABLE;
         $estate->description = $request->description;
         $estate->type = $request->type;
-        $estate->type_id = $request->type_id;
     
-        //Save our image
+        //Save image
         $image = $request->file('image');
-        //dd($image);
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $location = public_path('image/' . $filename);
         Image::make($image)->resize(800, 400)->save($location);
         $estate->image = $filename;
-		
+
+        // Shows .toaster message
         if ($estate->save()) {
             Session::flash('success', '!تمت أضافة العقار بنجاح');
             //Redirect to another page
@@ -99,8 +99,11 @@ class EstateController extends Controller
     public function show($id)
     {
         $estate = Estate::findOrFail($id);
+        $type = $estate->type()->pluck('name');
+        
+        //dd($estate);
 
-        return view('admin.estates.show')->withEstate($estate);
+        return view('admin.estates.show')->withEstate($estate)->withType($type);
     }
 
     /**
@@ -137,11 +140,11 @@ class EstateController extends Controller
         $this->validate($request, [
             'area_id' => 'sometimes|max:100',
             'user_id' => 'sometimes|max:100',
+            'user_id' => 'sometimes',
             'price' => 'sometimes|integer',
             'image' => 'sometimes|image',
             'description' => 'sometimes',
             'type' => 'sometimes',
-            'type_id' => 'sometimes',
             'status' => 'sometimes',
         ]);
 
@@ -154,6 +157,11 @@ class EstateController extends Controller
         if ($request->has('user_id'))
         {
             $estate->user_id = $request->user_id;
+        }
+
+        if ($request->has('type_id'))
+        {
+            $estate->type_id = $request->type_id;
         }
         
         if ($request->has('price'))
@@ -176,7 +184,7 @@ class EstateController extends Controller
             //New Path
             $estate->image = $filename;
 
-            //Delete the database
+            //Delete the image
             File::delete('image/'.$oldFilename);
         }
 
@@ -190,18 +198,13 @@ class EstateController extends Controller
             $estate->type = $request->type;
         }
 
-        if ($request->has('type_id'))
-        {
-            $estate->type_id = $request->type_id;
-        }
-
         if ($request->has('status'))
         {
             $estate->status = $request->status;
         }
 
-        //dd($estate);
 
+        // Shows .toaster message
         if($estate->save()){
 
             Session::flash('success', 'تم تعديل العقار بنجاح !');
@@ -224,7 +227,10 @@ class EstateController extends Controller
     {
         $estate = Estate::findOrFail($id);
         
+        //Delete image
         File::delete('image/'.$estate->image);
+
+        // Shows .toaster message
         if($estate->delete()){
 
             Session::flash('success', 'تم حذف العقار بنجاح !');

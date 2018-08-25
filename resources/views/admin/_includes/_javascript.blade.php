@@ -20,10 +20,14 @@
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="{{asset('vendor/js/toastr.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('vendor/js/jquery.validate.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('vendor/js/additional-methods.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('vendor/js/select2.full.min.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS  -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{asset('vendor/js/ui-toastr.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('vendor/js/login.min.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 
 

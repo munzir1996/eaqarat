@@ -42,6 +42,10 @@
                     <div class="col-md-7 value"> {{$estate->user->name}} </div>
                 </div>
                 <div class="row static-info">
+                    <div class="col-md-5 name">النوع : </div>
+                    <div class="col-md-7 value"> {{$type[0]}} </div>
+                </div>
+                <div class="row static-info">
                     <div class="col-md-5 name"> المبلغ : </div>
                     <div class="col-md-7 value"> {{$estate->price}} </div>
                 </div>
@@ -51,7 +55,7 @@
                         <span class="label label-sm label-success"> متوفر </span>
                         @endif @if($estate->status == 0)
                         <span class="label label-sm label-danger"> غير متوفر </span>
-                        @endif 
+                        @endif
                     </div>
                 </div>
                 <div class="row static-info">

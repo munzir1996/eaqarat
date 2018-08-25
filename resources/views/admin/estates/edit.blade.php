@@ -42,6 +42,14 @@
         </select>
     </div>
     <div class="form-group">
+        <label>النوع</label>
+        <select name="type_id" class="form-control">
+            @foreach($types as $type)
+            <option value="{{$type->id}}" {{ $type->id == $estate->type_id ? 'selected' : '' }}>{{$type->name}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <label>السعر</label>
         <input type="text" name="price" class="form-control" value="{{$estate->price}}" placeholder="السعر" number required>
     </div>

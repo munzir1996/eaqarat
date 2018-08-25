@@ -14,14 +14,25 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::resource('/realestates', 'RealEstateController');
+Route::get('/profile', 'ControlPanel\ControlPanelController@userProfile')->name('user.profile');
 
 Auth::routes();
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+// Admin auth routes
+Route::get('admin/login', 'ControlPanel\AdminLoginController@showLoginForm')->name('admin.login.form');
+Route::post('admin/login', 'ControlPanel\AdminLoginController@login')->name('admin.login');
 
-    Route::get('/', 'ControlPanel\ControlPanelController@index')->name('admin');
-    Route::get('profile', 'ControlPanel\ControlPanelController@profile')->name('profile');
+
+
+Route::prefix('admin')->middleware('auth:admin')->group(function () {
+
+    Route::get('/', 'ControlPanel\ControlPanelController@adminIndex')->name('admin');
+    Route::get('profile', 'ControlPanel\ControlPanelController@adminProfile')->name('profile');
     Route::resource('users', 'User\UserController');
+    Route::resource('admins', 'Admin\AdminController');
     Route::resource('types', 'Type\TypeController');
     Route::resource('areas', 'Area\AreaController');
     Route::resource('rates', 'Rate\RateController');
@@ -32,4 +43,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/home', 'HomeController@index')->name('home');
