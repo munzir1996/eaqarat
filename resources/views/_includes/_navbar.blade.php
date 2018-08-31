@@ -28,10 +28,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('user.profile') }}">ملف تعريفي للمستخدم</a>
-                                    </li>
-                                    <li>
-                                        <a href="profile.html">عقاراتي</a>
+                                        <a href="{{ route('user.profile', Auth::user()->id) }}">ملف تعريفي للمستخدم</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -83,13 +80,16 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="{{route('stock')}}">البورصة</a>
+                            </li>
+                            <li>
                                 <a href="{{route('about')}}">معلومات عننا </a>
                             </li>
                         </ul>
                         @auth
                         <ul class="menu-search-bar active">
                             <li>
-                                <a href="{{route('realestates.create')}}" class="btn btn-light">
+                                <a href="{{route('eaqars.create')}}" class="btn btn-light">
                                     <i class="fa fa-plus" aria-hidden="true"></i>عرض عقار</a>
                             </li>
                         </ul>

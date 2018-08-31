@@ -37,6 +37,6 @@ class User extends Authenticatable
     }
     public function estates()
     {
-        return $this->hasMany(Estates::class);
+        return $this->hasMany(Estate::class);
     }
 }

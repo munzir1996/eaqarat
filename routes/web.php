@@ -16,16 +16,13 @@ Route::get('/', function () {
 });
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');
-Route::resource('/realestates', 'RealEstateController');
-Route::get('/profile', 'ControlPanel\ControlPanelController@userProfile')->name('user.profile');
+Route::get('/stocks', 'StockController@index')->name('stock');
 
 Auth::routes();
 
 // Admin auth routes
 Route::get('admin/login', 'ControlPanel\AdminLoginController@showLoginForm')->name('admin.login.form');
 Route::post('admin/login', 'ControlPanel\AdminLoginController@login')->name('admin.login');
-
-
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
@@ -43,5 +40,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     
 });
 
-
+Route::get('/profile/{id}', 'ControlPanel\ControlPanelController@userProfile')->middleware('auth')->name('user.profile');
+Route::put('/edit/profile/{id}', 'ControlPanel\ControlPanelController@updateUserProfile')->middleware('auth')->name('updateuser.profile');
+Route::resource('/eaqars', 'EaqarController')->middleware('auth');
 //Route::get('/home', 'HomeController@index')->name('home');

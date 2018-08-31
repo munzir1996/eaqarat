@@ -30,7 +30,7 @@
                     <a href="{{route('home')}}">الصفحة الرئيسية</a>
                 </li>
                 <li>
-                    <a class="active" href="{{route('realestates.create')}}">عرض عقار</a>
+                    <a class="active" href="{{route('eaqars.create')}}">عرض عقار</a>
                 </li>
             </ul>
         </div>
@@ -55,7 +55,8 @@
                         </div>
                         <p class="lead">أنشر عقارك على
                             <a href="#">عقاري</a> بدون مقابل! ومع ذلك، يجب على جميع العقارات اتباع قواعد لدينا:</p>
-                        <form class="submit-form">
+                        <form action="{{ route('eaqars.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <!-- AREA  -->
                                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
@@ -119,7 +120,7 @@
                                     <label class="control-label">وصف العقار
                                         <small>أدخل وصف للعقار الخاص بك</small>
                                     </label>
-                                    <input name="description" class="form-control" placeholder="جديد هوندا العلامة التجارية المدني 2017 للبيع" type="text">
+                                    <input name="description" class="form-control" type="text">
                                 </div>
                             </div>
                             <!-- end row -->

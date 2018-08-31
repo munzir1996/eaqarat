@@ -36,4 +36,9 @@
 <!-- Parallax -->
 <script src="{{asset('vendor/js/markerclusterer.js')}}" type="text/javascript"></script>
 <script src="{{asset('vendor/js/markers-map.js')}}" type="text/javascript"></script>
-
+<!-- Toaster -->
+<script src="{{asset('vendor/js/ui-toastr.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('vendor/js/toastr.min.js')}}" type="text/javascript"></script>
+<!-- Cubeportfolio -->
+<script src="{{asset('vendor/js/jquery.cubeportfolio.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('vendor/js/portfolio-1.min.js')}}" type="text/javascript"></script>

@@ -2,29 +2,10 @@
 
 <div class="background-rotator">
     <!-- slider start-->
-    <div class="owl-carousel owl-theme background-rotator-slider owl-rtl owl-responsive-1000 owl-loaded">
+    <div class="owl-carousel owl-theme  owl-rtl owl-responsive-1000 owl-loaded">
 
         <div class="owl-stage-outer">
-            <div class="owl-stage" style="transform: translate3d(5396px, 0px, 0px); transition: all 0.25s ease 0s; width: 9443px;">
-                
-                <div class="owl-item cloned" style="width: 1349px; margin-left: 0px;">
-                    <div class="item linear-overlay">
-                        <img src="images/slider/4.jpg" alt="">
-                    </div>
-                </div>
-                <div class="owl-item cloned" style="width: 1349px; margin-left: 0px;">
-                    <div class="item linear-overlay">
-                        <img src="images/slider/2.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-controls">
-            <div class="owl-nav">
-                <div class="owl-prev" style="display: none;">prev</div>
-                <div class="owl-next" style="display: none;">next</div>
-            </div>
-            <div class="owl-dots" style="display: none;"></div>
+                <img src="{{asset('image/buildings.jpg')}}" alt="">
         </div>
     </div>
     <div class="search-section">
@@ -139,7 +120,7 @@
                        <li>تأجير السيارات من السهل جدا مع صنبور !</li>
                        <li>تأجير السيارات من السهل جدا مع صنبور !</li>
                     </ul>
-                    <button class="btn btn-lg btn-theme"> انضم إلينا الآن <i class="fa fa-refresh"></i> </button>
+                    <a href="{{route('register')}}" class="btn btn-lg btn-theme"> انضم إلينا الآن <i class="fa fa-refresh"></i> </a>
                  </div>
               </div>
            </div>

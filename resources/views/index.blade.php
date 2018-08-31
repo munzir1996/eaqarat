@@ -26,8 +26,8 @@
     @include('_includes._footer') 
     
     @include('_includes._javascript') 
-    
     @include('_includes._messages')
+
     
     @yield('scripts')
 

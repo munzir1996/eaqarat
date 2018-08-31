@@ -3,7 +3,7 @@
 <!-- =-=-=-=-=-=-= Template CSS Style =-=-=-=-=-=-= -->
 <link href="{{asset('vendor/css/style.css')}}" rel="stylesheet" type="text/css" />
 <!-- =-=-=-=-=-=-= Font Awesome =-=-=-=-=-=-= -->
-<link href="{{asset('vendor/css/font-awesome.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('vendor/css/font-awesome.css')}}" rel="stylesheet" type="text/css" />cubeportfolio
 <!-- =-=-=-=-=-=-= Flat Icon =-=-=-=-=-=-= -->
 <link href="{{asset('vendor/css/flaticon.css')}}" rel="stylesheet" type="text/css" />
 <!-- =-=-=-=-=-=-= Et Line Fonts =-=-=-=-=-=-= -->
@@ -33,3 +33,8 @@
 <link rel="stylesheet" id="theme-color" type="text/css" href="#" />
 <!-- JavaScripts -->
 <link href="{{asset('vendor/js/modernizr.js')}}" rel="stylesheet" type="text/css" />
+<!-- Toaster -->
+<link href="{{asset('vendor/css/toastr-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- Cubeportfolio -->
+<link href="{{asset('vendor/css/cubeportfolio.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('vendor/css/portfolio-rtl.min.css')}}" rel="stylesheet" type="text/css" />
