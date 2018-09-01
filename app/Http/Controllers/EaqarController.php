@@ -135,4 +135,21 @@ class EaqarController extends Controller
     {
         //
     }
+
+    public function rent($id){
+
+        $estates = Estate::where('user_id', $id)->where('type', 'أيجار')->paginate(10);
+        //dd($estates);
+        //$user = User::findOrFail($id);
+
+        return view('eaqars.rent')->withEstates($estates);
+    }
+    public function sale($id){
+
+        $estates = Estate::where('user_id', $id)->where('type', 'بيع')->paginate(10);
+        //dd($estates);
+        //$user = User::findOrFail($id);
+
+        return view('eaqars.sale')->withEstates($estates);
+    }
 }

@@ -54,10 +54,10 @@
                         <div class="listingTopFilterBar">
                             <div class="col-md-7 col-xs-12 col-sm-4 no-padding">
                                 <ul class="filterAdType">
-                                    <li class="active"><a>كل</a>
+                                    <li><a href="{{route('eaqars.show', Auth::user()->id)}}">كل</a>
                                     </li>
-                                    <li><a href="{{route('eaqars.show', Auth::user()->id)}}">بيع</a> </li>
-                                    <li><a href="{{route('eaqars.rent', Auth::user()->id)}}">أيجار</a> </li>
+                                    <li><a href="{{route('eaqars.sale', Auth::user()->id)}}">بيع</a> </li>
+                                    <li class="active"><a href="#">أيجار</a> </li>
                                 </ul>
                             </div>
                         </div>

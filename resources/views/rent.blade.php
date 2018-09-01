@@ -24,10 +24,10 @@
                     <a href="{{route('home')}}">الصفحة الرئيسية</a>
                 </li>
                 <li>
-                    <a href="{{route('user.profile', Auth::user()->id)}}">ملف تعريفي للمستخدم</a>
+                    <a href="#">العقارات</a>
                 </li>
                 <li>
-                    <a class="active" href="{{route('home')}}">عقاراتي</a>
+                    <a class="active" href="{{route('rent')}}">أيجار</a>
                 </li>
             </ul>
         </div>
@@ -42,28 +42,9 @@
         <!-- Main Container -->
         <div class="container">
 
-            <!-- Row -->
-            <div class="row">
                 <!-- Middle Content Area -->
                 <!-- Row -->
                 <div class="row">
-                    <!-- Sorting Filters -->
-                    <!-- Sorting Filters Breadcrumb -->
-                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                        <div class="clearfix"></div>
-                        <div class="listingTopFilterBar">
-                            <div class="col-md-7 col-xs-12 col-sm-4 no-padding">
-                                <ul class="filterAdType">
-                                    <li class="active"><a>كل</a>
-                                    </li>
-                                    <li><a href="{{route('eaqars.show', Auth::user()->id)}}">بيع</a> </li>
-                                    <li><a href="{{route('eaqars.rent', Auth::user()->id)}}">أيجار</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sorting Filters Breadcrumb End -->
-                    <!-- Sorting Filters End-->
                     <div class="clearfix"></div>
 
                     <!-- Estates -->
@@ -93,7 +74,7 @@
                                     <p class="location"><i class="fa fa-map-marker"></i> {{$estate->area->name}}
                                     </p>
                                     <!-- Details -->
-                                    <a href="#" class="btn btn-light">تفاصيل</a>
+                                <a href="{{route('detail', $estate->id)}}" class="btn btn-light">تفاصيل</a>
                                     <!-- Price -->
                                     <span class="ad-price">{{$estate->price}} جنية</span>
                                 </div>
@@ -110,8 +91,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        
                     @endforeach
+                    </div>
                     <!-- Eaqar Archive End -->
                     <div class="clearfix"></div>
                     <!-- Pagination -->
@@ -123,7 +105,7 @@
                     <!-- Pagination End -->
                 </div>
                 <!-- Row End -->
-                
-            @endsection
 
-            </div>
+
+
+            @endsection

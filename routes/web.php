@@ -17,6 +17,11 @@ Route::get('/', function () {
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/stocks', 'StockController@index')->name('stock');
+Route::get('/rents', 'RentController@index')->name('rent');
+Route::get('/sales', 'SaleController@index')->name('sale');
+Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/details/{id}', 'HomeController@detail')->name('detail');
+Route::post('/comment', 'HomeController@comment')->name('detail.comment');
 
 Auth::routes();
 
@@ -43,4 +48,6 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 Route::get('/profile/{id}', 'ControlPanel\ControlPanelController@userProfile')->middleware('auth')->name('user.profile');
 Route::put('/edit/profile/{id}', 'ControlPanel\ControlPanelController@updateUserProfile')->middleware('auth')->name('updateuser.profile');
 Route::resource('/eaqars', 'EaqarController')->middleware('auth');
+Route::get('/eaqars/rent/{id}', 'EaqarController@rent')->middleware('auth')->name('eaqars.rent');
+Route::get('/eaqars/sale/{id}', 'EaqarController@sale')->middleware('auth')->name('eaqars.sale');
 //Route::get('/home', 'HomeController@index')->name('home');

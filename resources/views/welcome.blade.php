@@ -5,7 +5,7 @@
     <div class="owl-carousel owl-theme  owl-rtl owl-responsive-1000 owl-loaded">
 
         <div class="owl-stage-outer">
-                <img src="{{asset('image/buildings.jpg')}}" alt="">
+            <img src="{{asset('image/buildings.jpg')}}" alt="">
         </div>
     </div>
     <div class="search-section">
@@ -21,11 +21,13 @@
                                 <strong>95,00,000</strong> إعلانات المشاركة</p>
                         </div>
                         <div class="search-form">
-                            <form>
+                            <form action="{{ route('search') }}" method="GET">
+                                
                                 <div class="row">
                                     <div class="col-md-4 col-xs-12 col-sm-4">
                                         <!-- Area -->
-                                        <select class="category form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                        <select class="category form-control select2-hidden-accessible" name="area_id"
+                                            tabindex="-1" aria-hidden="true">
                                             <option label="Select Option"></option>
                                             @foreach($areas as $area)
                                             <option value="{{$area->id}}">{{$area->name}}</option>
@@ -34,8 +36,9 @@
                                     </div>
                                     <!-- Input Field -->
                                     <div class="col-md-4 col-xs-12 col-sm-4">
-                                    <!-- Type -->
-                                        <select class="category form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                        <!-- Type -->
+                                        <select class="category form-control select2-hidden-accessible" name="type_id"
+                                            tabindex="-1" aria-hidden="true">
                                             <option label="Select Option"></option>
                                             @foreach($types as $type)
                                             <option value="{{$type->id}}">{{$type->name}}</option>
@@ -64,69 +67,74 @@
 <section class="section-padding white">
     <!-- Main Container -->
     <div class="container">
-       <!-- Row -->
-       <div class="row">
-          <!-- Heading Area -->
-          <div class="heading-panel">
-             <div class="col-xs-12 col-md-12 col-sm-12 text-center">
-                <!-- Main Title -->
-                <h1>كيف هو <span class="heading-color"> عمل</span></h1>
-                <!-- Short Description -->
-                <p class="heading-text">Eu delicata rationibus usu. Vix te putant utroque, ludus fabellas duo eu, his dico ut debet consectetuer.</p>
-             </div>
-          </div>
-          <!-- Middle Content Box -->
-          <div class="col-xs-12 col-md-12 col-sm-12 ">
-             <div class="row">
-                <div class="how-it-work text-center">
-                   <div class="how-it-work-icon"> <i class="flaticon-people"></i> </div>
-                   <h4>أنشئ حسابك</h4>
-                   <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend odio aliquam gravida mauris.</p>
+        <!-- Row -->
+        <div class="row">
+            <!-- Heading Area -->
+            <div class="heading-panel">
+                <div class="col-xs-12 col-md-12 col-sm-12 text-center">
+                    <!-- Main Title -->
+                    <h1>كيف هو <span class="heading-color"> عمل</span></h1>
+                    <!-- Short Description -->
+                    <p class="heading-text">Eu delicata rationibus usu. Vix te putant utroque, ludus fabellas duo eu,
+                        his dico ut debet consectetuer.</p>
                 </div>
-                <div class="how-it-work text-center ">
-                   <div class="how-it-work-icon"> <i class="flaticon-people-2"></i> </div>
-                   <h4>انشر إعلانك مجانا</h4>
-                   <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend odio aliquam gravida mauris.</p>
+            </div>
+            <!-- Middle Content Box -->
+            <div class="col-xs-12 col-md-12 col-sm-12 ">
+                <div class="row">
+                    <div class="how-it-work text-center">
+                        <div class="how-it-work-icon"> <i class="flaticon-people"></i> </div>
+                        <h4>أنشئ حسابك</h4>
+                        <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend
+                            odio aliquam gravida mauris.</p>
+                    </div>
+                    <div class="how-it-work text-center ">
+                        <div class="how-it-work-icon"> <i class="flaticon-people-2"></i> </div>
+                        <h4>انشر إعلانك مجانا</h4>
+                        <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend
+                            odio aliquam gravida mauris.</p>
+                    </div>
+                    <div class="how-it-work text-center">
+                        <div class="how-it-work-icon "> <i class="flaticon-heart-1"></i> </div>
+                        <h4>الاتفاق تم</h4>
+                        <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend
+                            odio aliquam gravida mauris.</p>
+                    </div>
                 </div>
-                <div class="how-it-work text-center">
-                   <div class="how-it-work-icon "> <i class="flaticon-heart-1"></i> </div>
-                   <h4>الاتفاق تم</h4>
-                   <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend odio aliquam gravida mauris.</p>
-                </div>
-             </div>
-          </div>
-          <!-- Middle Content Box End -->
-       </div>
-       <!-- Row End -->
+            </div>
+            <!-- Middle Content Box End -->
+        </div>
+        <!-- Row End -->
     </div>
     <!-- Main Container End -->
- </section>
+</section>
 
 <!-- =-=-=-=-=-=-= How It Work =-=-=-=-=-=-= -->
 
 <!-- =-=-=-=-=-=-= Featured Ad Parallex =-=-=-=-=-=-= -->
 
 <section class="parallex bg-3 featured-ads">
+    <div class="container">
+        <!-- Container -->
         <div class="container">
-           <!-- Container -->
-           <div class="container">
-              <div class="col-md-8 col-sm-6 no-padding">
-                 <div class="app-text-section">
+            <div class="col-md-8 col-sm-6 no-padding">
+                <div class="app-text-section">
                     <h5>إعلانات مميزة</h5>
                     <h3>الحصول على مزيد من التعرض </h3>
                     <ul>
-                       <li>العثور على السيارات المجاورة في الشبكة مع الباحث العلمي</li>
-                       <li>تصفح المؤجرون الحقيقية مراجعات لمعرفة لماذا اختيار الباحث العلمي</li>
-                       <li>تأجير السيارات من السهل جدا مع صنبور !</li>
-                       <li>تأجير السيارات من السهل جدا مع صنبور !</li>
+                        <li>العثور على السيارات المجاورة في الشبكة مع الباحث العلمي</li>
+                        <li>تصفح المؤجرون الحقيقية مراجعات لمعرفة لماذا اختيار الباحث العلمي</li>
+                        <li>تأجير السيارات من السهل جدا مع صنبور !</li>
+                        <li>تأجير السيارات من السهل جدا مع صنبور !</li>
                     </ul>
-                    <a href="{{route('register')}}" class="btn btn-lg btn-theme"> انضم إلينا الآن <i class="fa fa-refresh"></i> </a>
-                 </div>
-              </div>
-           </div>
-           <!-- Container /- -->
+                    <a href="{{route('register')}}" class="btn btn-lg btn-theme"> انضم إلينا الآن <i class="fa fa-refresh"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-     </section>
+        <!-- Container /- -->
+    </div>
+</section>
 
 
 @endsection

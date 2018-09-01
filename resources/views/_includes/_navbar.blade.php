@@ -31,6 +31,9 @@
                                         <a href="{{ route('user.profile', Auth::user()->id) }}">ملف تعريفي للمستخدم</a>
                                     </li>
                                     <li>
+                                        <a href="{{route('eaqars.show', Auth::user()->id)}}">عقارات</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="icon-key"></i>تسجيل خروج</a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -64,7 +67,7 @@
                                 <a href="{{route('home')}}">الصفحة الرئيسية </a>
                             </li>
                             <li class="hoverTrigger">
-                                <a href="javascript:void(0)">العقارات
+                                <a href="#">العقارات
                                     <i class="fa fa-angle-down fa-indicator"></i>
                                     <div class="mobileTriggerButton"></div>
                                 </a>
@@ -72,10 +75,10 @@
                                 <ul class="drop-down-multilevel effect-expand-top" style="transition: all 400ms ease 0s;">
 
                                     <li>
-                                        <a href="category-2.html"> بيع</a>
+                                        <a href="{{route('sale')}}"> بيع</a>
                                     </li>
                                     <li>
-                                        <a href="category-3.html"> أيجار </a>
+                                        <a href="{{route('rent')}}"> أيجار </a>
                                     </li>
                                 </ul>
                             </li>

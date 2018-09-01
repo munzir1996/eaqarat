@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="header-page">
-                    <h1>عقاراتي</h1>
+                    <h1>البحث</h1>
                 </div>
             </div>
         </div>
@@ -24,10 +24,7 @@
                     <a href="{{route('home')}}">الصفحة الرئيسية</a>
                 </li>
                 <li>
-                    <a href="{{route('user.profile', Auth::user()->id)}}">ملف تعريفي للمستخدم</a>
-                </li>
-                <li>
-                    <a class="active" href="{{route('home')}}">عقاراتي</a>
+                    <a href="#">البحث</a>
                 </li>
             </ul>
         </div>
@@ -42,8 +39,6 @@
         <!-- Main Container -->
         <div class="container">
 
-            <!-- Row -->
-            <div class="row">
                 <!-- Middle Content Area -->
                 <!-- Row -->
                 <div class="row">
@@ -54,10 +49,10 @@
                         <div class="listingTopFilterBar">
                             <div class="col-md-7 col-xs-12 col-sm-4 no-padding">
                                 <ul class="filterAdType">
-                                    <li class="active"><a>كل</a>
+                                    <li><a href="{{route('eaqars.show', Auth::user()->id)}}">كل</a>
                                     </li>
-                                    <li><a href="{{route('eaqars.show', Auth::user()->id)}}">بيع</a> </li>
-                                    <li><a href="{{route('eaqars.rent', Auth::user()->id)}}">أيجار</a> </li>
+                                    <li><a href="{{route('eaqars.sale', Auth::user()->id)}}">بيع</a> </li>
+                                    <li class="active"><a href="#">أيجار</a> </li>
                                 </ul>
                             </div>
                         </div>
@@ -110,8 +105,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        
                     @endforeach
+                    </div>
                     <!-- Eaqar Archive End -->
                     <div class="clearfix"></div>
                     <!-- Pagination -->
@@ -123,7 +119,7 @@
                     <!-- Pagination End -->
                 </div>
                 <!-- Row End -->
-                
-            @endsection
 
-            </div>
+
+
+            @endsection

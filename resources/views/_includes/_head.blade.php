@@ -3,7 +3,7 @@
 <!-- =-=-=-=-=-=-= Template CSS Style =-=-=-=-=-=-= -->
 <link href="{{asset('vendor/css/style.css')}}" rel="stylesheet" type="text/css" />
 <!-- =-=-=-=-=-=-= Font Awesome =-=-=-=-=-=-= -->
-<link href="{{asset('vendor/css/font-awesome.css')}}" rel="stylesheet" type="text/css" />cubeportfolio
+<link href="{{asset('vendor/css/font-awesome.css')}}" rel="stylesheet" type="text/css" />
 <!-- =-=-=-=-=-=-= Flat Icon =-=-=-=-=-=-= -->
 <link href="{{asset('vendor/css/flaticon.css')}}" rel="stylesheet" type="text/css" />
 <!-- =-=-=-=-=-=-= Et Line Fonts =-=-=-=-=-=-= -->

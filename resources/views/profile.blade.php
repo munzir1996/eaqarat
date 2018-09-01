@@ -65,7 +65,6 @@
                             </div>
                             <ul>
                                 <li class="active"><a href="{{ route('user.profile', Auth::user()->id) }}">الملف الشخصي</a></li>
-                            <li><a href="{{route('eaqars.show', Auth::user()->id)}}">عقارات <span class="badge">{{$user->estates->count()}}</span></a></li>
                             </ul>
                         </div>
                     </div>
