@@ -17,8 +17,6 @@
                     <div class="content">
                         <div class="heading-caption">
                             <h1>تجد ما الذي تبحث عنه</h1>
-                            <p>على مدى
-                                <strong>95,00,000</strong> إعلانات المشاركة</p>
                         </div>
                         <div class="search-form">
                             <form action="{{ route('search') }}" method="GET">
@@ -90,7 +88,7 @@
                     </div>
                     <div class="how-it-work text-center ">
                         <div class="how-it-work-icon"> <i class="flaticon-people-2"></i> </div>
-                        <h4>انشر إعلانك مجانا</h4>
+                        <h4>انشر عقارك مجانا</h4>
                         <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend
                             odio aliquam gravida mauris.</p>
                     </div>

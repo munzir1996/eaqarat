@@ -22,6 +22,8 @@ Route::get('/sales', 'SaleController@index')->name('sale');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/details/{id}', 'HomeController@detail')->name('detail');
 Route::post('/comment', 'HomeController@comment')->name('detail.comment');
+Route::get('/blocks', 'BlockController@create')->name('block');
+Route::post('/blocks', 'BlockController@store')->name('block.store');
 
 Auth::routes();
 

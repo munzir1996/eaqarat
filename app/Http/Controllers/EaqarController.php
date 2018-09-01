@@ -13,6 +13,7 @@ use Session;
 use Purifier; 
 use Image;
 use Storage;
+use File;
 
 class EaqarController extends Controller
 {
@@ -110,7 +111,15 @@ class EaqarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estate = Estate::findOrFail($id);
+        $areas = Area::all();
+        $users = User::all();
+        $types = Type::all();
+
+        return view('eaqars.edit')->withEstate($estate)
+                                        ->withAreas($areas)
+                                        ->withUsers($users)
+                                        ->withTypes($types);
     }
 
     /**
@@ -122,7 +131,87 @@ class EaqarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estate = Estate::findOrFail($id);
+     
+        //dd($estate);
+        $this->validate($request, [
+            'area_id' => 'sometimes|max:100',
+            'user_id' => 'sometimes|max:100',
+            'user_id' => 'sometimes',
+            'price' => 'sometimes|integer',
+            'image' => 'sometimes|image',
+            'description' => 'sometimes',
+            'type' => 'sometimes',
+            'status' => 'sometimes',
+        ]);
+
+
+        //dd($estate);
+        if ($request->has('area_id'))
+        {
+            $estate->area_id = $request->area_id;
+        }
+        if ($request->has('user_id'))
+        {
+            $estate->user_id = $request->user_id;
+        }
+
+        if ($request->has('type_id'))
+        {
+            $estate->type_id = $request->type_id;
+        }
+        
+        if ($request->has('price'))
+        {
+            $estate->price = $request->price;
+        }
+
+        if ($request->has('image'))
+        {
+            //Save our image
+            $image = $request->file('image');
+            //dd($image);
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('image/' . $filename);
+            Image::make($image)->resize(800, 400)->save($location);
+
+            //Old Path
+            $oldFilename = $estate->image;
+
+            //New Path
+            $estate->image = $filename;
+
+            //Delete the image
+            File::delete('image/'.$oldFilename);
+        }
+
+        if ($request->has('description'))
+        {
+            $estate->description = $request->description;
+        }
+
+        if ($request->has('type'))
+        {
+            $estate->type = $request->type;
+        }
+
+        if ($request->has('status'))
+        {
+            $estate->status = $request->status;
+        }
+
+
+        // Shows .toaster message
+        if($estate->save()){
+
+            Session::flash('success', 'تم تعديل العقار بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('home');
+        }
+
+        Session::flash('error', 'حصل خطااثناء تعديل العقار الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('home');
     }
 
     /**
@@ -133,7 +222,22 @@ class EaqarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estate = Estate::findOrFail($id);
+        
+        //Delete image
+        File::delete('image/'.$estate->image);
+
+        // Shows .toaster message
+        if($estate->delete()){
+
+            Session::flash('success', 'تم حذف العقار بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('home');
+        }
+
+        Session::flash('error', 'حصل خطااثناء حذف العقار الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('home');
     }
 
     public function rent($id){

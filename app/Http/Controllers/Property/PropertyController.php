@@ -72,12 +72,12 @@ class PropertyController extends Controller
         
         // Shows .toaster message
         if ($property->save()) {
-            Session::flash('success', '!تمت أضافة العقار بنجاح');
+            Session::flash('success', '!تمت أضافة التمليك بنجاح');
             //Redirect to another page
 		    return redirect()->route('properties.index');
         }
 
-        Session::flash('error', 'حصل خطااثناء اضافة العقار الرجاء اعادة المحاولة');
+        Session::flash('error', 'حصل خطااثناء اضافة التمليك الرجاء اعادة المحاولة');
         //Redirect to another page
 	    return redirect()->route('properties.index');
     }

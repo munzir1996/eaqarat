@@ -14,25 +14,9 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="header-page">
-                    <h1>عرض عقار </h1>
+                    <h1>تعديل عقار </h1>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Small Breadcrumb -->
-<div class="small-breadcrumb">
-    <div class="container">
-        <div class=" breadcrumb-link">
-            <ul>
-                <li>
-                    <a href="{{route('home')}}">الصفحة الرئيسية</a>
-                </li>
-                <li>
-                    <a class="active" href="{{route('eaqars.create')}}">عرض عقار</a>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
@@ -50,13 +34,13 @@
                     <div class="post-ad-form postdetails">
                         <div class="heading-panel">
                             <h3 class="main-title text-left">
-                                أضف عقارك
+                                تعديل عقار
                             </h3>
                         </div>
                         <p class="lead">أنشر عقارك على
                             <a href="#">عقاري</a> بدون مقابل! ومع ذلك، يجب على جميع العقارات اتباع قواعد لدينا:</p>
-                        <form action="{{ route('eaqars.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
+                        <form action="{{ route('eaqars.update', $estate->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf {{ method_field('PUT') }}
                             <div class="row">
                                 <!-- AREA  -->
                                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
@@ -64,10 +48,10 @@
                                         <small>اختيار منطقة وجود العقار</small>
                                     </label>
                                     <select name="area_id" class="category form-control select2-hidden-accessible" 
-                                    tabindex="-1" aria-hidden="true" required>
+                                    tabindex="-1" aria-hidden="true">
                                         <option label="Select Option"></option>
                                         @foreach($areas as $area)
-                                        <option value="{{$area->id}}">{{$area->name}}</option>
+                                        <option value="{{$area->id}}" {{ $area->id == $estate->area_id ? 'selected' : '' }}>{{$area->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -77,10 +61,10 @@
                                         <small>اختيار نوع العقار</small>
                                     </label>
                                     <select name="type_id" class="category form-control select2-hidden-accessible" 
-                                    tabindex="-1" aria-hidden="true" required>
+                                    tabindex="-1" aria-hidden="true">
                                         <option label="Select Option"></option>
                                         @foreach($types as $type)
-                                        <option value="{{$type->id}}">{{$type->name}}</option>
+                                        <option value="{{$type->id}}" {{ $type->id == $estate->type_id ? 'selected' : '' }}>{{$type->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -89,7 +73,7 @@
                                     <label class="control-label">السعر
                                         <small>جنية سوداني only</small>
                                     </label>
-                                    <input name="price" class="form-control" type="text" required>
+                                <input name="price" class="form-control" type="text" value="{{$estate->price}}">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -107,7 +91,7 @@
                                         <span class="input-group-addon btn btn-default btn-file">
                                             <span class="fileinput-new">Select file</span>
                                             <span class="fileinput-exists">Change</span>
-                                            <input id="image" type="file" name="image" required>
+                                            <input id="image" type="file" name="image">
                                         </span>
                                         <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                     </div>
@@ -120,7 +104,7 @@
                                     <label class="control-label">وصف العقار
                                         <small>أدخل وصف للعقار الخاص بك</small>
                                     </label>
-                                    <input name="description" class="form-control" type="text" required>
+                                    <input name="description" class="form-control" type="text" value="{{$estate->description}}">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -131,22 +115,41 @@
                                         <small> تريد بيع أو أيجار</small>
                                     </label>
                                     <div class="skin-minimal">
-                                        <ul class="list" >
+                                        <ul class="list">
                                             <li>
                                                 <input value="بيع" type="radio" id="type" 
-                                                name="type">
+                                                name="type" {{ $estate->type == 'بيع' ? 'selected' : '' }}>
                                                 <label for="minimal-radio-1"> بيع </label>
                                             </li>
                                             <li>
                                                 <input value="أيجار" type="radio" id="type" name="type">
-                                                <label for="minimal-radio-2"> أيجار</label>
+                                                <label for="minimal-radio-2" {{ $estate->type == 'بيع' ? 'selected' : '' }}> أيجار</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                <label class="control-label">الحالة
+                                        <small> هل متوفر أو غير متوفر</small>
+                                    </label>
+                                    <div class="skin-minimal">
+                                        <ul class="list">
+                                            <li>
+                                                <input value="1" type="radio" id="status" 
+                                                name="status">
+                                                <label for="minimal-radio-1"> متوفر </label>
+                                            </li>
+                                            <li>
+                                                <input value="0" type="radio" id="status" name="status">
+                                                <label for="minimal-radio-2"> غير متوفر</label>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                            
-                            <button type="submit" class="btn btn-theme pull-right">أنشر عقاري</button>
+                            <button type="submit" class="btn btn-theme pull-right">تعديل عقاري</button>
                         </form>
                     </div>
                     <!-- end post-ad-form-->

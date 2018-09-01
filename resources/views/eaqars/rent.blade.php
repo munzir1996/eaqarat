@@ -68,8 +68,8 @@
 
                     <!-- Estates -->
                     <div class="posts-masonry">
-                        
-                    @foreach($estates as $estate)
+
+                        @foreach($estates as $estate)
                         <!-- Listing Eaqar Grid -->
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                             <div class="white category-grid-box-1 ">
@@ -93,9 +93,14 @@
                                     <p class="location"><i class="fa fa-map-marker"></i> {{$estate->area->name}}
                                     </p>
                                     <!-- Details -->
-                                    <a href="#" class="btn btn-light">تفاصيل</a>
+                                    <form action="{{route('eaqars.destroy', $estate->id)}}" method="POST">
+                                        @csrf {{ method_field('DELETE') }}
+                                        <a href="{{route('eaqars.edit', $estate->id)}}" class="btn btn-primary">تعديل</a>
+                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                        <span class="ad-price">{{$estate->price}} جنية</span>
+                                    </form>
                                     <!-- Price -->
-                                    <span class="ad-price">{{$estate->price}} جنية</span>
+                                    
                                 </div>
                                 <!-- Ad Meta Stats -->
                                 <div class="ad-info-1">
@@ -123,7 +128,7 @@
                     <!-- Pagination End -->
                 </div>
                 <!-- Row End -->
-                
-            @endsection
+
+                @endsection
 
             </div>

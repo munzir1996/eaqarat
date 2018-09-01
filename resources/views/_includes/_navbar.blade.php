@@ -86,6 +86,9 @@
                                 <a href="{{route('stock')}}">البورصة</a>
                             </li>
                             <li>
+                                <a href="{{route('block')}}">تمليك</a>
+                            </li>
+                            <li>
                                 <a href="{{route('about')}}">معلومات عننا </a>
                             </li>
                         </ul>

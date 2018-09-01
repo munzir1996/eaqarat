@@ -12,7 +12,7 @@ use Session;
 use Purifier; 
 use Image;
 use Storage;
-
+use File;
 
 class EstateController extends Controller
 {

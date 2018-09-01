@@ -8,6 +8,7 @@ use App\Area;
 use App\Type;
 use App\Comment;
 use App\Rate;
+use App\User;
 use Session;
 use Illuminate\Http\Request;
 
@@ -33,13 +34,15 @@ class HomeController extends Controller
     {
         $areas = Area::all();
         $types = Type::all();
-
+        
         return view('welcome')->withAreas($areas)->withTypes($types);
     }
 
     public function about()
     {
-        return view('about');
+        $estates = Estate::all();
+        $users = User::all();
+        return view('about')->withEstates($estates)->withUsers($users);
     }
     
     public function search(Request $request){
