@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 use App\Property;
 use Illuminate\Http\Request;
@@ -9,12 +10,14 @@ use Purifier;
 use Storage;
 use Illuminate\Support\Facades\Input;
 use File;
+use App\Title;
 
 class BlockController extends Controller
 {
     public function create(){
 
-        return view ('block');
+        $title = Title::findOrFail(1);
+        return view ('block')->withTitle($title);
 
     }
     public function store(Request $request){

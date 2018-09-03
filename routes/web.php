@@ -24,6 +24,9 @@ Route::get('/details/{id}', 'HomeController@detail')->name('detail');
 Route::post('/comment', 'HomeController@comment')->name('detail.comment');
 Route::get('/blocks', 'BlockController@create')->name('block');
 Route::post('/blocks', 'BlockController@store')->name('block.store');
+Route::get('/complains', 'ComplainController@create')->name('complain');
+Route::post('/complains', 'ComplainController@store')->name('complain.store');
+Route::get('/results', 'ResultController@index')->name('result');
 
 Auth::routes();
 
@@ -44,6 +47,10 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('markets', 'Market\MarketController');
     Route::resource('properties', 'Property\PropertyController');
     Route::resource('comments', 'Comment\CommentController');
+    Route::resource('results', 'Result\ResultController');
+    Route::resource('Complains', 'Complain\ComplainController');
+    Route::put('property\title', 'Property\PropertyController@title')->name('property.title');
+    Route::post('property\result\{id}', 'Property\PropertyController@result')->name('property.result');
     
 });
 

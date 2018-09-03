@@ -1,11 +1,10 @@
 <?php
 
-use App\Property;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePropertiesTable extends Migration
+class CreateComplainsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +13,13 @@ class CreatePropertiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('properties', function (Blueprint $table) {
+        Schema::create('complains', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('hire_date');
-            $table->unsignedInteger('age');
-            $table->string('salary_pdf');
-            $table->string('offical_pdf');
-            $table->unsignedInteger('type')->default(Property::NOTACCEPTED);
+            $table->string('email');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('complain', 1000);
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreatePropertiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('properties');
+        Schema::dropIfExists('complains');
     }
 }

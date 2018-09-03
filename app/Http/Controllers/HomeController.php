@@ -47,6 +47,9 @@ class HomeController extends Controller
     
     public function search(Request $request){
 
+        $areas = Area::all();
+        $types = Type::all();
+
         $this->validate($request, [
             'area_id' => 'required',
             'type_id' => 'required',
@@ -60,7 +63,7 @@ class HomeController extends Controller
         //dd($estates);
         if(!empty($estates)){
             //Redirect to another page
-            return view('search')->withEstates($estates);
+            return view('search')->withEstates($estates)->withAreas($areas)->withTypes($types);
         }else{
             Session::flash('error', 'لم يتم العثور'); 
         }

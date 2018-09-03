@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Property;
 
+use App\Title;
 use App\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,8 +22,9 @@ class PropertyController extends Controller
     public function index()
     {
         $properties = Property::all();
+        $title = Title::findOrFail(1);
 
-        return view('admin.properties.index')->withProperties($properties);
+        return view('admin.properties.index')->withProperties($properties)->withTitle($title);
     }
 
     /**
@@ -216,4 +218,60 @@ class PropertyController extends Controller
         //Redirect to another page
 	    return redirect()->route('properties.index');
     }
+
+    public function title(Request $request){
+        $title = Title::findOrFail(1);
+
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $title->name = $request->name;
+
+        // Shows .toaster message
+        if($title->save()){
+
+            Session::flash('success', 'تم تجديد التمليك بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('properties.index');
+        }
+
+        Session::flash('error', 'حصل خطااثناء تجديد التمليك الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('properties.index');
+    }
+
+    public function result($id){
+
+        $property = Property::findOrFail($id);
+
+        if ($property->type == 0) {
+            $property->type = 1;
+        // Shows .toaster message
+        if($property->save()){
+
+            Session::flash('success', 'تم قبول التمليك بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('properties.index');
+        }
+
+        Session::flash('error', 'حصل خطااثناء قبول التمليك الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('properties.index');
+        } else {
+            $property->type = 0;
+        // Shows .toaster message
+        if($property->save()){
+
+            Session::flash('success', 'تم رفض التمليك بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('properties.index');
+        }
+
+        Session::flash('error', 'حصل خطااثناء رفض التمليك الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('properties.index');
+        }
+    }
+
 }

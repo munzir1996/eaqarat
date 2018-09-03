@@ -1,4 +1,13 @@
 @extends('index')
+<!-- BEGIN CSS -->
+@section('stylesheets')
+<style>
+.top-card-space{
+    margin-top: 30px;
+}
+</style>
+@endsection
+<!-- END CSS -->
 
 @section('content')
 
@@ -39,30 +48,47 @@
         <!-- Main Container -->
         <div class="container">
 
+                <div class="search-form">
+                        <form action="{{ route('search') }}" method="GET">
+                            
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12 col-sm-4">
+                                    <!-- Area -->
+                                    <select class="category form-control select2-hidden-accessible" name="area_id"
+                                         aria-hidden="true">
+                                        <option label="Select Option"></option>
+                                        @foreach($areas as $area)
+                                        <option value="{{$area->id}}">{{$area->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <!-- Input Field -->
+                                <div class="col-md-4 col-xs-12 col-sm-4">
+                                    <!-- Type -->
+                                    <select class="category form-control select2-hidden-accessible" name="type_id"
+                                         aria-hidden="true">
+                                        <option label="Select Option"></option>
+                                        @foreach($types as $type)
+                                        <option value="{{$type->id}}">{{$type->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <!-- Search Button -->
+                                <div class="col-md-4 col-xs-12 col-sm-4">
+                                    <button type="submit" class="btn btn-theme btn-block">بحث
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 <!-- Middle Content Area -->
                 <!-- Row -->
                 <div class="row">
-                    <!-- Sorting Filters -->
-                    <!-- Sorting Filters Breadcrumb -->
-                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                        <div class="clearfix"></div>
-                        <div class="listingTopFilterBar">
-                            <div class="col-md-7 col-xs-12 col-sm-4 no-padding">
-                                <ul class="filterAdType">
-                                    <li><a href="{{route('eaqars.show', Auth::user()->id)}}">كل</a>
-                                    </li>
-                                    <li><a href="{{route('eaqars.sale', Auth::user()->id)}}">بيع</a> </li>
-                                    <li class="active"><a href="#">أيجار</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sorting Filters Breadcrumb End -->
-                    <!-- Sorting Filters End-->
-                    <div class="clearfix"></div>
 
                     <!-- Estates -->
-                    <div class="posts-masonry">
+                    <div class="posts-masonry top-card-space">
                         
                     @foreach($estates as $estate)
                         <!-- Listing Eaqar Grid -->

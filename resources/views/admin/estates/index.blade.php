@@ -55,7 +55,6 @@
                         <th>التكلفة</th>
                         <th>الحالة</th>
                         <th>العرض</th>
-                        <th>النوع</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -75,7 +74,6 @@
                             @endif
                         </td>
                         <td>{{$estate->type}}</td>
-                        <td>{{$estate->type()->pluck('name')}}</td>
                         <td>
                             <form action="{{route('estates.destroy', $estate->id)}}" method="POST">
                                 @csrf {{ method_field('DELETE') }}
@@ -191,8 +189,22 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#estates-table').DataTable();
+        $('#estates-table').DataTable({
+            filterDropDown: {									
+					columns: [
+                    {
+                        idx: 1
+                    },
+                    {
+                        idx: 5
+                    },
+						
+					],
+                    bootstrap: true
+				}
+        });
     });
+    
     $('.fileinput').fileinput()
 </script>
 @endsection

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Estate;
+use App\Comment;
 
 class ControlPanelController extends Controller
 {
@@ -17,7 +18,11 @@ class ControlPanelController extends Controller
      */
     public function adminIndex()
     {
-        return view('admin.index');
+        $estates = Estate::all();
+        $users = User::all();
+        $comments = Comment::all();
+
+        return view('admin.index')->withEstates($estates)->withUsers($users)->withComments($comments);
     }
 
     public function adminProfile()

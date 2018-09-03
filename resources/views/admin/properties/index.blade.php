@@ -3,7 +3,7 @@
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}">
-<link rel="stylesheet" href="{{asset('vendor/css/bootstrap-fileinput.css')}}" /> 
+<link rel="stylesheet" href="{{asset('vendor/css/bootstrap-fileinput.css')}}" />
 @endsection
 <!-- END CSS -->
 @section('content')
@@ -23,6 +23,16 @@
 <!-- END PAGE-BAR -->
 
 <h3 class="page-title"> التمليك </h3>
+
+<form action="{{ route('property.title') }}" method="POST">
+    @csrf {{ method_field('PUT') }}
+    <div class="form-group">
+        <label>حدد نوع التمليك</label>
+        <input type="text" name="name" class="form-control" value=" {{$title->name}} " placeholder="حدد نوع التمليك" required>
+        <br>
+        <button type="submit" class="btn btn-outline sbold green">تحديد</button>
+    </div>
+</form>
 
 <!-- BEGIN DATATABLE -->
 <div class="portlet light bordered">
@@ -53,17 +63,32 @@
                         <th>الأسم</th>
                         <th>تاريخ التعين</th>
                         <th>العمر</th>
+                        <th>القبول</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    
-                @foreach($properties as $property)
+
+                    @foreach($properties as $property)
                     <tr>
                         <td>{{$property->id}}</td>
                         <td>{{$property->name}}</td>
                         <td>{{$property->hire_date}}</td>
                         <td>{{$property->age}}</td>
+                        <td>
+                            <form action="{{route('property.result', $property->id)}}" method="post">
+                                @csrf
+                                @if($property->type == 0)
+                                <button type="submit" class="btn green btn-sm btn-outline sbold uppercase">
+                                    قبول
+                                </button>
+                                @else
+                                <button type="submit" class="btn yellow btn-sm btn-outline sbold uppercase">
+                                    رفض
+                                </button>
+                                @endif
+                            </form>
+                        </td>
                         <td>
                             <form action="{{route('properties.destroy', $property->id)}}" method="POST">
                                 @csrf {{ method_field('DELETE') }}
@@ -79,8 +104,8 @@
                             </form>
                         </td>
                     </tr>
-                    
-                @endforeach
+
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -105,7 +130,8 @@
                     </div>
                     <div class="form-group">
                         <label>تاريخ التعين</label>
-                        <input type="text" name="hire_date" class="form-control" placeholder="تاريخ التعين" number required>
+                        <input type="text" name="hire_date" class="form-control" placeholder="تاريخ التعين" number
+                            required>
                     </div>
                     <div class="form-group">
                         <label>العمر</label>

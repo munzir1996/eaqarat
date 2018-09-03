@@ -73,7 +73,6 @@
                                 </a>
                                 <!-- drop down multilevel  -->
                                 <ul class="drop-down-multilevel effect-expand-top" style="transition: all 400ms ease 0s;">
-
                                     <li>
                                         <a href="{{route('sale')}}"> بيع</a>
                                     </li>
@@ -85,8 +84,23 @@
                             <li>
                                 <a href="{{route('stock')}}">البورصة</a>
                             </li>
+                            <li class="hoverTrigger">
+                                <a href="#">التمليك
+                                    <i class="fa fa-angle-down fa-indicator"></i>
+                                    <div class="mobileTriggerButton"></div>
+                                </a>
+                                <!-- drop down multilevel  -->
+                                <ul class="drop-down-multilevel effect-expand-top" style="transition: all 400ms ease 0s;">
+                                    <li>
+                                        <a href="{{route('block')}}"> الأستمارة</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('result')}}"> النتيجة </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li>
-                                <a href="{{route('block')}}">تمليك</a>
+                                <a href="{{route('complain')}}">الشكاوي</a>
                             </li>
                             <li>
                                 <a href="{{route('about')}}">معلومات عننا </a>

@@ -25,7 +25,7 @@
                                     <div class="col-md-4 col-xs-12 col-sm-4">
                                         <!-- Area -->
                                         <select class="category form-control select2-hidden-accessible" name="area_id"
-                                            tabindex="-1" aria-hidden="true">
+                                             aria-hidden="true">
                                             <option label="Select Option"></option>
                                             @foreach($areas as $area)
                                             <option value="{{$area->id}}">{{$area->name}}</option>
@@ -36,7 +36,7 @@
                                     <div class="col-md-4 col-xs-12 col-sm-4">
                                         <!-- Type -->
                                         <select class="category form-control select2-hidden-accessible" name="type_id"
-                                            tabindex="-1" aria-hidden="true">
+                                             aria-hidden="true">
                                             <option label="Select Option"></option>
                                             @foreach($types as $type)
                                             <option value="{{$type->id}}">{{$type->name}}</option>

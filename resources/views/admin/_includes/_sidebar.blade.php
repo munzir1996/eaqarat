@@ -14,6 +14,12 @@
             <li class="heading">
                 <h3 class="uppercase">لوحة التحكم</h3>
             </li>
+            <li class="nav-item  ">
+                <a href="{{route('admin')}}" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">الصفحة الرئيسية</span>
+                </a>
+            </li>
 
             <li class="nav-item  ">
                 <a href="#" class="nav-link nav-toggle">

@@ -1,11 +1,11 @@
 <?php
 
-use App\Property;
+use App\Title;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePropertiesTable extends Migration
+class CreateTitlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,9 @@ class CreatePropertiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('properties', function (Blueprint $table) {
+        Schema::create('titles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('hire_date');
-            $table->unsignedInteger('age');
-            $table->string('salary_pdf');
-            $table->string('offical_pdf');
-            $table->unsignedInteger('type')->default(Property::NOTACCEPTED);
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreatePropertiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('properties');
+        Schema::dropIfExists('titles');
     }
 }
