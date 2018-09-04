@@ -23,7 +23,7 @@
 
 <h3 class="page-title">تعديل بيانات العقار </h3>
 
-<form action="{{ route('estates.update', $estate->id) }}" method="POST">
+<form action="{{ route('estates.update', $estate->id) }}" method="POST" enctype="multipart/form-data">
     @csrf {{ method_field('PUT') }}
     <div class="form-group">
         <label>المنطقه</label>
@@ -81,7 +81,7 @@
         <span class="input-group-addon btn btn-default btn-file">
             <span class="fileinput-new">Select file</span>
             <span class="fileinput-exists">Change</span>
-            <input type="file" id="image" name="image" value="{{$estate->image}}">
+            <input type="file" id="image" name="image">
         </span>
         <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
     </div>

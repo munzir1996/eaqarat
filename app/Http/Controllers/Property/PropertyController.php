@@ -184,7 +184,7 @@ class PropertyController extends Controller
 
             Session::flash('success', 'تم تعديل التمليك بنجاح !');
             //Redirect to another page
-		    return redirect()->route('propertys.index');
+		    return redirect()->route('properties.index');
         }
 
         Session::flash('error', 'حصل خطااثناء تعديل التمليك الرجاء اعادة المحاولة');

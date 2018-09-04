@@ -24,7 +24,7 @@
 
 <h3 class="page-title">تعديل بيانات التمليك </h3>
 
-<form action="{{ route('properties.update', $property->id) }}" method="POST">
+<form action="{{ route('properties.update', $property->id) }}" method="POST" enctype="multipart/form-data">
     @csrf {{ method_field('PUT') }}
     <div class="form-group">
             <label>الأسم</label>

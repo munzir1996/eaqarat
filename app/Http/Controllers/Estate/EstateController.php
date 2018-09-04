@@ -135,21 +135,22 @@ class EstateController extends Controller
     public function update(Request $request, $id)
     {
         $estate = Estate::findOrFail($id);
-     
+        
         //dd($estate);
         $this->validate($request, [
             'area_id' => 'sometimes|max:100',
             'user_id' => 'sometimes|max:100',
             'user_id' => 'sometimes',
             'price' => 'sometimes|integer',
-            'image' => 'sometimes|image',
+            //'image' => 'sometimes|image',
             'description' => 'sometimes',
             'type' => 'sometimes',
             'status' => 'sometimes',
         ]);
 
 
-        //dd($estate);
+        //dd($request->file('image'));
+
         if ($request->has('area_id'))
         {
             $estate->area_id = $request->area_id;
@@ -183,7 +184,7 @@ class EstateController extends Controller
 
             //New Path
             $estate->image = $filename;
-
+            
             //Delete the image
             File::delete('image/'.$oldFilename);
         }
