@@ -96,7 +96,7 @@
                                     <form action="{{route('eaqars.destroy', $estate->id)}}" method="POST">
                                         @csrf {{ method_field('DELETE') }}
                                         <a href="{{route('eaqars.edit', $estate->id)}}" class="btn btn-primary">تعديل</a>
-                                        <button type="submit" clbuttonss="btn btn-danger">حذف</button>
+                                        <button type="submit" class="btn btn-danger">حذف</button>
                                         <span class="ad-price">{{$estate->price}} جنية</span>
                                     </form>
                                     <!-- Price -->
@@ -115,8 +115,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        
                     @endforeach
+                    </div>
                     <!-- Eaqar Archive End -->
                     <div class="clearfix"></div>
                     <!-- Pagination -->

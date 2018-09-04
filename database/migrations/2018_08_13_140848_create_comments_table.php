@@ -22,7 +22,7 @@ class CreateCommentsTable extends Migration
             $table->timestamps();
 
             $table->foreign('rate_id')->references('id')->on('rates');
-            $table->foreign('user_id')->references('id')->on('areas');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('estate_id')->references('id')->on('estates');
         });
     }

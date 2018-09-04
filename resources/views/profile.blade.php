@@ -88,20 +88,20 @@
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <label>اسمك </label>
                                                 <input type="text" name="name" value="{{Auth::user()->name}}" 
-                                                class="form-control margin-bottom-20">
+                                                class="form-control margin-bottom-20" required>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <label>عنوان البريد الإلكتروني <span class="color-red">*</span></label>
                                                 <input type="email" name="email" value="{{Auth::user()->email}}" 
-                                                class="form-control margin-bottom-20">
+                                                class="form-control margin-bottom-20" required>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <label>رقم الهاتف<span class="color-red">*</span></label>
-                                                <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control margin-bottom-20">
+                                                <input type="text" name="phone" value="{{Auth::user()->phone}}" class="form-control margin-bottom-20" required>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
                                                 <label>العنوان<span class="color-red">*</span></label>
-                                                <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control margin-bottom-20">
+                                                <input type="text" name="address" value="{{Auth::user()->address}}" class="form-control margin-bottom-20" required>
                                             </div>
                                         </div>
 
@@ -115,11 +115,13 @@
                                     </form>
                                 </div>
                                 <div class="profile-edit tab-pane fade" id="password">
-                                    <form action="#" id="sky-form" class="sky-form" novalidate="">
+                                    <form action="{{ route('updateuser.profile', Auth::user()->id) }}" method="POST">
+                                        @csrf 
+                                        {{ method_field('PUT') }}
                                         <!--Checkout-Form-->
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <label>كلمت المرور<span class="color-red">*</span></label>
-                                            <input type="password" class="form-control margin-bottom-20">
+                                            <input type="password" class="form-control margin-bottom-20" required>
                                         </div>
                                         <button type="submit" class="btn btn-sm btn-theme">تغير كلمة المرور</button>
                                         <!--End Checkout-Form-->

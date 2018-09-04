@@ -16,7 +16,9 @@ class ComplainController extends Controller
      */
     public function index()
     {
-        //
+        $complains = Complain::all();
+
+        return view('admin.complains.index')->withComplains($complains);
     }
 
     /**
@@ -46,9 +48,11 @@ class ComplainController extends Controller
      * @param  \App\Complain  $complain
      * @return \Illuminate\Http\Response
      */
-    public function show(Complain $complain)
+    public function show($id)
     {
-        //
+        $complain = Complain::findOrFail($id);
+
+        return view('admin.complains.show')->withComplain($complain);
     }
 
     /**

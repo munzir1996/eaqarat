@@ -93,15 +93,16 @@ class HomeController extends Controller
         $comment->estate_id = $request->estate_id;
         $comment->comment = $request->comment;
 
+        //dd($comment);
         if ($comment->save()) {
             Session::flash('success', '!تمت أضافة التعليق بنجاح');
             //Redirect to another page
-        return redirect()->route('detail.comment', $request->estate_id);
+        return redirect()->route('detail', $request->estate_id);
         }
 
         Session::flash('error', 'حصل خطااثناء اضافة التعليق الرجاء اعادة المحاولة');
         //Redirect to another page
-        return redirect()->route('detail.comment', $request->estate_id);
+        return redirect()->route('detail', $request->estate_id);
     }
 
 }

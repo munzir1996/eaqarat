@@ -21,7 +21,7 @@
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item">
                 <a href="#" class="nav-link nav-toggle">
                     <i class="icon-users"></i>
                     <span class="title">المستخدمين</span>
@@ -34,7 +34,7 @@
                             <span class="title">العملاء</span>
                         </a>
                     </li>
-                    <li class="nav-item start ">
+                    <li class="nav-item start">
                         <a href="{{route('admins.index')}}" class="nav-link ">
                             <i class="icon-user-follow"></i>
                             <span class="title">الأدمن</span>
@@ -43,45 +43,52 @@
                 </ul>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item">
                 <a href="{{route('types.index')}}" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
                     <span class="title">الأنواع</span>
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item">
                 <a href="{{route('areas.index')}}" class="nav-link nav-toggle">
                     <i class="icon-pointer"></i>
                     <span class="title">المناطق</span>
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item">
                 <a href="{{route('rates.index')}}" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
                     <span class="title">التقييم</span>
                 </a>
             </li>
             
-            <li class="nav-item  ">
+            <li class="nav-item">
                 <a href="{{route('estates.index')}}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">العقارات</span>
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item">
                 <a href="{{route('markets.index')}}" class="nav-link nav-toggle">
                     <i class="icon-graph"></i>
                     <span class="title">البورصة</span>
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item">
                 <a href="{{route('properties.index')}}" class="nav-link nav-toggle">
                     <i class="icon-docs"></i>
                     <span class="title">التمليك</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{route('complains.index')}}" class="nav-link nav-toggle">
+                    <i class="icon-paper-plane"></i>
+                    <span class="title">الشكاوي</span>
                 </a>
             </li>
             

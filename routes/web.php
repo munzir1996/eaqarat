@@ -21,7 +21,6 @@ Route::get('/rents', 'RentController@index')->name('rent');
 Route::get('/sales', 'SaleController@index')->name('sale');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/details/{id}', 'HomeController@detail')->name('detail');
-Route::post('/comment', 'HomeController@comment')->name('detail.comment');
 Route::get('/blocks', 'BlockController@create')->name('block');
 Route::post('/blocks', 'BlockController@store')->name('block.store');
 Route::get('/complains', 'ComplainController@create')->name('complain');
@@ -47,8 +46,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('markets', 'Market\MarketController');
     Route::resource('properties', 'Property\PropertyController');
     Route::resource('comments', 'Comment\CommentController');
-    Route::resource('results', 'Result\ResultController');
-    Route::resource('Complains', 'Complain\ComplainController');
+    Route::resource('complains', 'Complain\ComplainController');
     Route::put('property\title', 'Property\PropertyController@title')->name('property.title');
     Route::post('property\result\{id}', 'Property\PropertyController@result')->name('property.result');
     
@@ -59,4 +57,6 @@ Route::put('/edit/profile/{id}', 'ControlPanel\ControlPanelController@updateUser
 Route::resource('/eaqars', 'EaqarController')->middleware('auth');
 Route::get('/eaqars/rent/{id}', 'EaqarController@rent')->middleware('auth')->name('eaqars.rent');
 Route::get('/eaqars/sale/{id}', 'EaqarController@sale')->middleware('auth')->name('eaqars.sale');
+
+Route::post('/comment', 'HomeController@comment')->middleware('auth')->name('detail.comment');
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -158,11 +158,16 @@
                     <div class="sidebar">
                         <!-- Contact info -->
                         <div class="contact white-bg">
+                            @if($estate->status == 1)
                             <!-- Email Button trigger modal -->
                             <button class="btn-block btn-contact contactEmail" data-toggle="modal" data-target=".price-quote">تواصل
                                 مع البائع</button>
                             <!-- Email Modal -->
                             <button class="btn-block btn-contact contactPhone number">{{$estate->user->phone}}</button>
+                            @else
+                            <button class="btn-block btn-contact contactEmail" 
+                            data-toggle="modal" data-target=".price-quote">غير متوفر</button>
+                            @endif
                         </div>
                         <!-- Price info block -->
                         <div class="ad-listing-price">

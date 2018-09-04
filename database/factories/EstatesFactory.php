@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Estates::class, function (Faker $faker) {
+$factory->define(App\Estate::class, function (Faker $faker) {
     return [
         //
     ];

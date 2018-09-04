@@ -116,9 +116,9 @@
                                 </div>
                             </div>
                         </div>
-
-                    </div>
+                        
                     @endforeach
+                    </div>
                     <!-- Eaqar Archive End -->
                     <div class="clearfix"></div>
                     <!-- Pagination -->

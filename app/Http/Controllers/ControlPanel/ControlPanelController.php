@@ -72,12 +72,12 @@ class ControlPanelController extends Controller
 
             Session::flash('success', 'تم تعديل بياناتك بنجاح !');
             //Redirect to another page
-		    return redirect()->route('user.profile');
+		    return redirect()->route('user.profile', $id);
         }
 
         Session::flash('error', 'حصل خطااثناء تعديل بياناتك الرجاء اعادة المحاولة');
         //Redirect to another page
-	    return redirect()->route('user.profile');
+	    return redirect()->route('user.profile', $id);
     }
 
 }

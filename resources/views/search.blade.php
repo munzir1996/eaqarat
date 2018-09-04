@@ -114,7 +114,7 @@
                                     <p class="location"><i class="fa fa-map-marker"></i> {{$estate->area->name}}
                                     </p>
                                     <!-- Details -->
-                                    <a href="#" class="btn btn-light">تفاصيل</a>
+                                    <a href="{{route('detail', $estate->id)}}" class="btn btn-light">تفاصيل</a>
                                     <!-- Price -->
                                     <span class="ad-price">{{$estate->price}} جنية</span>
                                 </div>
