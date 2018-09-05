@@ -1,10 +1,13 @@
 @extends('metronic')
+@section('title', ' جدول الأدمن') 
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('vendor/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}">
 @endsection
 <!-- END CSS -->
+
+
 @section('content')
 <!-- BEGIN PAGE-BAR -->
 <div class="page-bar">
@@ -51,7 +54,7 @@
                         <th> # </th>
                         <th>الأسم</th>
                         <th>البريد الألكتروني</th>
-                        <th></th>
+                        <th>العمليات</th>
                     </tr>
                 </thead>
                 
@@ -142,7 +145,19 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#admins-table').DataTable();
+        $('#admins-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                messageTop: 'This print was produced using the Print button for DataTables',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        });
     });
 </script>
 @endsection

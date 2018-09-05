@@ -1,4 +1,5 @@
 @extends('index')
+@section('title', ' جدول البورصة')
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -93,7 +94,12 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#markets-table').DataTable();
+        $('#markets-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+        });
     });
 </script>
 @endsection

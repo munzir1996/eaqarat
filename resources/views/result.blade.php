@@ -1,4 +1,5 @@
 @extends('index')
+@section('title', '  جدول النتيجة')
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -96,7 +97,12 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#results-table').DataTable();
+        $('#results-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+        });
     });
 </script>
 @endsection

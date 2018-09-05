@@ -1,4 +1,5 @@
 @extends('metronic')
+@section('title', ' جدول العقارات') 
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -55,7 +56,7 @@
                         <th>التكلفة</th>
                         <th>الحالة</th>
                         <th>العرض</th>
-                        <th></th>
+                        <th>العمليات</th>
                     </tr>
                 </thead>
                 
@@ -190,6 +191,17 @@
     //Datatable
     $(document).ready(function () {
         $('#estates-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                messageTop: 'This print was produced using the Print button for DataTables',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
             filterDropDown: {									
 					columns: [
                     {

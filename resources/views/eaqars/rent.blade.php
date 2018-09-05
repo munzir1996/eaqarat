@@ -1,5 +1,4 @@
 @extends('index')
-
 @section('content')
 
 <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->

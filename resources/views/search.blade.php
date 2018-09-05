@@ -1,4 +1,5 @@
 @extends('index')
+@section('title', '  البحث')
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <style>

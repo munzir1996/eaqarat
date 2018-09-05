@@ -1,4 +1,5 @@
 @extends('metronic')
+@section('title', ' جدول المناطق') 
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -52,7 +53,7 @@
                         <th>الأسم</th>
                         <th>المربع</th>
                         <th>النوع</th>
-                        <th></th>
+                        <th>العمليات</th>
                     </tr>
                 </thead>
                 
@@ -137,7 +138,19 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#areas-table').DataTable();
+        $('#areas-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                messageTop: 'This print was produced using the Print button for DataTables',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        });
     });
 </script>
 @endsection

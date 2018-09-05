@@ -2,7 +2,8 @@
     <!-- BEGIN SIDEBAR -->
     <div class="page-sidebar navbar-collapse collapse">
         <!-- BEGIN SIDEBAR MENU -->
-        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true"
+            data-slide-speed="200" style="padding-top: 20px">
             <li class="sidebar-toggler-wrapper hide">
                 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                 <div class="sidebar-toggler">
@@ -10,7 +11,7 @@
                 </div>
                 <!-- END SIDEBAR TOGGLER BUTTON -->
             </li>
-            
+
             <li class="heading">
                 <h3 class="uppercase">لوحة التحكم</h3>
             </li>
@@ -63,7 +64,7 @@
                     <span class="title">التقييم</span>
                 </a>
             </li>
-            
+
             <li class="nav-item">
                 <a href="{{route('estates.index')}}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
@@ -91,9 +92,9 @@
                     <span class="title">الشكاوي</span>
                 </a>
             </li>
-            
-                </ul>
-            </li>
+
+        </ul>
+        </li>
         </ul>
         <!-- END SIDEBAR MENU -->
     </div>

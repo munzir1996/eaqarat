@@ -1,5 +1,7 @@
 @extends('index')
 
+@section('title', '  التفاصيل')
+
 @section('content')
 
 <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->

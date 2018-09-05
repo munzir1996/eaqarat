@@ -1,5 +1,5 @@
 @extends('index') 
-
+@section('title', ' عرض عقار')
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{asset('vendor/css/bootstrap-fileinput.css')}}" /> 

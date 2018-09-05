@@ -1,5 +1,5 @@
 @extends('index')
-
+@section('title', '  الشكاوي')
 @section('content')
 
 <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->

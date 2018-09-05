@@ -1,5 +1,5 @@
 @extends('index')
-
+@section('title', '  ملف تعريفي للمستخدم')
 @section('content')
 
 <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->

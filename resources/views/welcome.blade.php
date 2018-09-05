@@ -24,6 +24,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-xs-12 col-sm-4">
                                         <!-- Area -->
+                                        <label for="area">المنطقه</label>
                                         <select class="category form-control select2-hidden-accessible" name="area_id"
                                              aria-hidden="true">
                                             <option label="Select Option"></option>
@@ -35,6 +36,7 @@
                                     <!-- Input Field -->
                                     <div class="col-md-4 col-xs-12 col-sm-4">
                                         <!-- Type -->
+                                        <label for="area">النوع</label>
                                         <select class="category form-control select2-hidden-accessible" name="type_id"
                                              aria-hidden="true">
                                             <option label="Select Option"></option>

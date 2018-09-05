@@ -1,4 +1,6 @@
-@extends('index') @section('content')
+@extends('index')
+@section('title', ' معلومات عننا ')
+@section('content')
 
 <!-- =-=-=-=-=-=-= Transparent Breadcrumb =-=-=-=-=-=-= -->
 <div class="page-header-area">

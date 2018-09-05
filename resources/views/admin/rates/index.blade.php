@@ -1,4 +1,5 @@
 @extends('metronic')
+@section('title', ' جدول التقيم') 
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -50,7 +51,7 @@
                     <tr>
                         <th> # </th>
                         <th>التقييم</th>
-                        <th></th>
+                        <th>العمليات</th>
                     </tr>
                 </thead>
                 
@@ -121,7 +122,19 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#rates-table').DataTable();
+        $('#rates-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                messageTop: 'This print was produced using the Print button for DataTables',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        });
     });
 </script>
 @endsection

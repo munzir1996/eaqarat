@@ -1,4 +1,5 @@
 @extends('metronic')
+@section('title', ' جدول البورصة') 
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -52,7 +53,7 @@
                         <th>أسم المنطقه</th>
                         <th>السعر الأبتدائي</th>
                         <th>السعر النهائي</th>
-                        <th></th>
+                        <th>العمليات</th>
                     </tr>
                 </thead>
                 
@@ -138,7 +139,19 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#markets-table').DataTable();
+        $('#markets-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                messageTop: 'This print was produced using the Print button for DataTables',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        });
     });
 </script>
 @endsection

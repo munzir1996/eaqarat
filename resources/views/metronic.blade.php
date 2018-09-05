@@ -2,8 +2,9 @@
 <html lang="{{ app()->getLocale() }}" dir="rtl">
 
 <head>
+    
+<title>لوحة التحكم | @yield('title')</title>
     <meta charset="utf-8" />
-    <title>Dashboard</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" /> 
     @include('admin._includes._head')

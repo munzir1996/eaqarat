@@ -2,10 +2,10 @@
 <html lang="{{ app()->getLocale() }}" dir="rtl">
 
 <head>
+    <title> عقاري | @yield('title')</title>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta name="description" content="">
     <meta name="author" content="ScriptsBundle">
-    <title>عقاري</title>
     @include('_includes._head') 
     @yield('stylesheets')
 </head>

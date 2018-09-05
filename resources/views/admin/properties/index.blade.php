@@ -1,4 +1,5 @@
 @extends('metronic')
+@section('title', ' جدول التمليك') 
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -64,7 +65,7 @@
                         <th>تاريخ التعين</th>
                         <th>العمر</th>
                         <th>القبول</th>
-                        <th></th>
+                        <th>العمليات</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -190,7 +191,19 @@
 <script>
     //Datatable
     $(document).ready(function () {
-        $('#properties-table').DataTable();
+        $('#properties-table').DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                messageTop: 'This print was produced using the Print button for DataTables',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        });
     });
     $('.fileinput').fileinput()
 </script>
