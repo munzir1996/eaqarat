@@ -84,8 +84,20 @@ class ComplainController extends Controller
      * @param  \App\Complain  $complain
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Complain $complain)
+    public function destroy($id)
     {
-        //
+        $complain =Complain::findOrFail($id);
+        
+        // Shows .toaster message
+        if($complain->delete()){
+
+            Session::flash('success', 'تم حذف الشكوة بنجاح !');
+            //Redirect to another page
+		    return redirect()->route('complains.index');
+        }
+
+        Session::flash('error', 'حصل خطااثناء حذف الشكوة الرجاء اعادة المحاولة');
+        //Redirect to another page
+	    return redirect()->route('complains.index');
     }
 }

@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                             <!-- end row -->
-                            <button type="submit" class="btn btn-theme pull-right">أضافة</button>
+                            <button type="submit" class="btn btn-theme pull-right">أرسال</button>
                         </form>
                     </div>
                     <!-- end post-ad-form-->

@@ -75,8 +75,6 @@
                     <!-- Main Title -->
                     <h1>كيف هو <span class="heading-color"> عمل</span></h1>
                     <!-- Short Description -->
-                    <p class="heading-text">Eu delicata rationibus usu. Vix te putant utroque, ludus fabellas duo eu,
-                        his dico ut debet consectetuer.</p>
                 </div>
             </div>
             <!-- Middle Content Box -->
@@ -85,20 +83,14 @@
                     <div class="how-it-work text-center">
                         <div class="how-it-work-icon"> <i class="flaticon-people"></i> </div>
                         <h4>أنشئ حسابك</h4>
-                        <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend
-                            odio aliquam gravida mauris.</p>
                     </div>
                     <div class="how-it-work text-center ">
                         <div class="how-it-work-icon"> <i class="flaticon-people-2"></i> </div>
                         <h4>انشر عقارك مجانا</h4>
-                        <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend
-                            odio aliquam gravida mauris.</p>
                     </div>
                     <div class="how-it-work text-center">
                         <div class="how-it-work-icon "> <i class="flaticon-heart-1"></i> </div>
                         <h4>الاتفاق تم</h4>
-                        <p>Duis posuere nec libero efficitur maecenas ut aliquam augue dapibus elit nullam eleifend
-                            odio aliquam gravida mauris.</p>
                     </div>
                 </div>
             </div>
@@ -119,13 +111,11 @@
         <div class="container">
             <div class="col-md-8 col-sm-6 no-padding">
                 <div class="app-text-section">
-                    <h5>إعلانات مميزة</h5>
-                    <h3>الحصول على مزيد من التعرض </h3>
+                    <h3>مع عقاري</h3>
                     <ul>
-                        <li>العثور على السيارات المجاورة في الشبكة مع الباحث العلمي</li>
-                        <li>تصفح المؤجرون الحقيقية مراجعات لمعرفة لماذا اختيار الباحث العلمي</li>
-                        <li>تأجير السيارات من السهل جدا مع صنبور !</li>
-                        <li>تأجير السيارات من السهل جدا مع صنبور !</li>
+                        <li>العثور على العقارات المجاورة في الشبكة مع الباحث </li>
+                        <li>تأجير العقارات من السهل جدا مع عقاري !</li>
+                        <li>بيع العقارات من السهل جدا مع عقاري !</li>
                     </ul>
                     <a href="{{route('register')}}" class="btn btn-lg btn-theme"> انضم إلينا الآن <i class="fa fa-refresh"></i>
                     </a>

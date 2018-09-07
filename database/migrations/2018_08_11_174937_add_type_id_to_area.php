@@ -16,7 +16,7 @@ class AddTypeIdToArea extends Migration
         Schema::table('areas', function (Blueprint $table) {
             $table->unsignedInteger('type_id');
 
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
         });
     }
 

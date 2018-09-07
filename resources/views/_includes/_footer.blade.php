@@ -4,26 +4,25 @@
                         <div class="col-sm-4 col-md-4 col-xs-12 footer-widget">
                                 <h2>لدينا هواتف</h2>
                                 <p>
-                                        <span>+90 555 999 77 44</span> ,
-                                        <span>+90 505 959 75 24 </span>
+                                        <span>+249 114949235</span> ,
+                                        <span>+249 920562259 </span>
                                 </p>
                         </div>
                         <div class="col-sm-4 col-md-4 col-xs-12 footer-widget">
                                 <h2>عنواننا</h2>
                                 <p>
-                                        <span>1 LoopText Center London</span> ,
-                                        <span> CA 112</span>
-                                        <span>United Kingdom </span>
+                                        <span>شارع الستين</span>
+                                        <span> المعمورة </span>
                                 </p>
                         </div>
                         <div class="col-sm-4 col-md-4 col-xs-12 footer-widget">
                                 <h2>أبق على اتصال</h2>
                                 <p>
-                                        <a href="#">contact@scriptsbundle.com</a>
+                                        <a href="#">contact@contact.com</a>
                                 </p>
                         </div>
                 </div>
-                <p class="copy-rights">جميع الحقوق محفوظة © </p>
+                <p class="copy-rights">جميع الحقوق محفوظة © عقاري</p>
         </div>
 </footer>
 

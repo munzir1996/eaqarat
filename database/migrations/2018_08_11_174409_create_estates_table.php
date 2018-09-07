@@ -28,9 +28,9 @@ class CreateEstatesTable extends Migration
             $table->string('type');//choose
             $table->timestamps();
 
-            $table->foreign('type_id')->references('id')->on('types');
-            $table->foreign('area_id')->references('id')->on('areas');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

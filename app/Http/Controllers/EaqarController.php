@@ -139,7 +139,7 @@ class EaqarController extends Controller
             'user_id' => 'sometimes|max:100',
             'user_id' => 'sometimes',
             'price' => 'sometimes|integer',
-            'image' => 'sometimes|image',
+            'image' => 'required|image',
             'description' => 'sometimes',
             'type' => 'sometimes',
             'status' => 'sometimes',

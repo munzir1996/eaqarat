@@ -1,5 +1,5 @@
 @extends('metronic')
-@section('title', ' جدول الشكاوي') 
+@section('title', ' جدول الشكاوي')
 <!-- BEGIN CSS -->
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('vendor/plugins/datatables/datatables.min.css') }}">
@@ -46,9 +46,9 @@
                         <th>العمليات</th>
                     </tr>
                 </thead>
-                
+
                 <tbody>
-                        @foreach($complains as $complain)
+                    @foreach($complains as $complain)
                     <tr>
                         <td>{{$complain->id}}</td>
                         <td>{{$complain->name}}</td>
@@ -56,13 +56,18 @@
                         <td>{{$complain->address}}</td>
                         <td>{{$complain->phone}}</td>
                         <td>
-                            <a href="{{route('complains.show', $complain->id)}}" class="btn dark btn-sm btn-outline sbold uppercase">
-                                <i class="fa fa-share"> عرض </i>
-                            </a>
+                            <form action="{{route('complains.destroy', $complain->id)}}" method="POST">
+                                @csrf {{ method_field('DELETE') }}
+                                <a href="{{route('complains.show', $complain->id)}}" class="btn dark btn-sm btn-outline sbold uppercase">
+                                    <i class="fa fa-share"> عرض </i>
+                                </a>
+                                <button type="submit" class="btn red btn-sm btn-outline sbold uppercase">
+                                    <i class="fa fa-edit">حذف</i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
-                    
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -83,16 +88,15 @@
     $(document).ready(function () {
         $('#complains-table').DataTable({
             dom: 'Bfrtip',
-        buttons: [
-            {
-                extend: 'print',
-                messageTop: 'This print was produced using the Print button for DataTables',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            'colvis'
-        ],
+            buttons: [{
+                    extend: 'print',
+                    messageTop: 'This print was produced using the Print button for DataTables',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'colvis'
+            ],
         });
     });
 </script>

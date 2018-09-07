@@ -20,7 +20,7 @@ class CreateMarketsTable extends Migration
             $table->unsignedInteger('end_price');
             $table->timestamps();
 
-            $table->foreign('area_id')->references('id')->on('areas');
+            $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
         });
     }
 

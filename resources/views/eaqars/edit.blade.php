@@ -47,8 +47,8 @@
                         <div class="profile-section margin-bottom-20">
                             <div class="profile-tabs">
                                 <ul class="nav nav-justified nav-tabs">
-                                    <li class="active"><a href="#profile" data-toggle="tab">تعديل الملف الشخصي</a></li>
-                                    <li><a href="#password" data-toggle="tab">تغير كلمة المرور</a></li>
+                                    <li class="active"><a href="#profile" data-toggle="tab">تعديل بيانات العقار</a></li>
+                                    <li><a href="#password" data-toggle="tab">تغير حالة العقار</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="profile-edit tab-pane fade active in" id="profile">

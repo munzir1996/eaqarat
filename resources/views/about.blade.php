@@ -48,16 +48,10 @@
                             </h3>
                         </div>
                         <h2></h2>
-                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                            took a galley of type and scrambledit to make a type specimen book. It has survived not only
-                            five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                            essentially unchanged.It has survived not only five centuries, but also the leap into publishing
-                            software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                            dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit
-                            to make a type specimen It has survived not only five centuries, but also the leap into electronic
-                            typesetting, remaining essentially unchanged.</p>
+                        <p>يعمل عقاري  على تقديم كافة الأدوات اللازمة لمساعدة مستخدمي الموقع في الحصول على
+                             العقارات التي تناسب ذواقهم واحتياجاتهم.نعمل مع الوسطاء العقاريين على اضافة جميع التفاصيل
+                             والمعلومات المتعلقة بالعقارات في مكان واحد مما يسهل على المستخدم الاختيار والمقارنة بين
+                             العقارات أثناء التصفح والبحث من خلال الحاسوب الشخصي او أجهزة المحمول الذكية</p>
                     </div>
                 </div>
             </div>
@@ -74,8 +68,7 @@
                     <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
                         <div class="why-us border-box text-center">
                             <h5>لماذا أخترتنا</h5>
-                            <p>Mauris eros tortor, tristique cursus porttitor et, luctus sed urna. Quisque id libero risus.
-                                Aliquam accumsan erat id sem placerat tempus.</p>
+                            <p>اعلن عن عقارك بسهولة صور شقتك و اعرضها للبيع او الايجار للملايين من الزوار.</p>
                         </div>
                     </div>
                     <!-- service box end -->
@@ -83,8 +76,7 @@
                     <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
                         <div class="why-us border-box text-center">
                             <h5>مهمتنا</h5>
-                            <p>Mauris eros tortor, tristique cursus porttitor et, luctus sed urna. Quisque id libero risus.
-                                Aliquam accumsan erat id sem placerat tempus.</p>
+                            <p>ابحث عن الشقة المناسبة ليك حدد المنطقة والسعر وشاهد آلاف العقارات للبيع و الايجار.</p>
                         </div>
                         <!-- end featured-item -->
                     </div>
@@ -93,8 +85,7 @@
                     <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
                         <div class="why-us border-box text-center">
                             <h5>حلول خلاقة فقط</h5>
-                            <p>Mauris eros tortor, tristique cursus porttitor et, luctus sed urna. Quisque id libero risus.
-                                Aliquam accumsan erat id sem placerat tempus.</p>
+                            <p>مكان واحد بيجمع كل الكمباوندز قبل ما تشتري ، تعرف علي خدمات و اسعار ومميزات كل كمباوندز</p>
                         </div>
                         <!-- end featured-item -->
                     </div>

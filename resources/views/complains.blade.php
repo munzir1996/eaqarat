@@ -91,7 +91,7 @@
                             </div>
                             <br>
                             <!-- end row -->
-                            <button type="submit" class="btn btn-theme pull-right">تقديم الشكوة</button>
+                            <button type="submit" class="btn btn-theme pull-right">أرسال</button>
                         </form>
                     </div>
                     <!-- end post-ad-form-->
