@@ -102,17 +102,6 @@
                                     <!-- Price -->
                                     
                                 </div>
-                                <!-- Ad Meta Stats -->
-                                <div class="ad-info-1">
-                                    <ul>
-                                        <li>
-                                            <i class="fa fa-eye"></i>{{$estate->comments->count()}}
-                                            التعليقات
-                                        </li>
-                                        <li> <i class="fa fa-clock-o"></i>
-                                            {{ date('M j, Y ',strtotime($estate->created_at)) }}</li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                         

@@ -22,6 +22,8 @@ class BlockController extends Controller
     }
     public function store(Request $request){
 
+        $title = Title::findOrFail(1);
+
         $this->validate($request, [
             'name' => 'required',
             'hire_date' => 'required|integer',
@@ -49,6 +51,8 @@ class BlockController extends Controller
         $offical_pdf->move(public_path('file/'), $filename);
         $property->offical_pdf = $filename;
         
+        $property->property_type = $title->name;
+        //dd($property);
         // Shows .toaster message
         if ($property->save()) {
             Session::flash('success', '!تمت أضافة التمليك بنجاح');

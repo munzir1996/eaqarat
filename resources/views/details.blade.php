@@ -111,12 +111,12 @@
                         </div>
 
                         <div class="clearfix"></div>
+                        @auth
                         <div class="blog-section">
                             <div class="blog-heading">
                                 <h2>أترك تعليق </h2>
                                 <hr>
                             </div>
-                            @auth
                             <div class="commentform">
                                 <form action="{{ route('detail.comment') }}" method="POST">
                                     @csrf

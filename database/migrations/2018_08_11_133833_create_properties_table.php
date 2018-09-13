@@ -21,6 +21,7 @@ class CreatePropertiesTable extends Migration
             $table->unsignedInteger('age');
             $table->string('salary_pdf');
             $table->string('offical_pdf');
+            $table->string('property_type');
             $table->unsignedInteger('type')->default(Property::NOTACCEPTED);
             $table->timestamps();
         });

@@ -60,6 +60,7 @@
                             <tr>
                                 <th> # </th>
                                 <th>الأسم</th>
+                                <th>نوع التمليك</th>
                                 <th>النتيجة</th>
                             </tr>
                         </thead>
@@ -69,6 +70,7 @@
                             <tr>
                                 <td>{{$propert->id}}</td>
                                 <td>{{$propert->name}}</td>
+                                <td>{{$propert->property_type}}</td>
                                 <td>
                                     @if($propert->type == 1)
                                     <span class="label label-sm label-success">قبول</span>

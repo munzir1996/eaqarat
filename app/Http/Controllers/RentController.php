@@ -15,8 +15,34 @@ class RentController extends Controller
 {
     public function index(){
 
+        $areas = Area::all();
+        $types = Type::all();
         $estates = Estate::where('type', 'أيجار')->paginate(10);
 
-        return view('rent')->withEstates($estates);
+        return view('rent')->withEstates($estates)->withTypes($areas)->withAreas($types);
+    }
+
+    public function search (Request $request){
+
+        $areas = Area::all();
+        $types = Type::all();
+
+        $this->validate($request, [
+            'area_id' => 'required',
+            'type_id' => 'required',
+        ]);
+
+        $area_id = $request->area_id;
+        $type_id = $request->type_id;
+
+        $estates = Estate::where('type', 'أيجار')->where('area_id', $area_id)->where('type_id', $type_id)->paginate(10);
+
+        //dd($estates);
+        if(!empty($estates)){
+            //Redirect to another page
+            return view('rent')->withEstates($estates)->withAreas($areas)->withTypes($types);
+        }else{
+            Session::flash('error', 'لم يتم العثور'); 
+        }
     }
 }

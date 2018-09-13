@@ -25,7 +25,7 @@ class CreateEstatesTable extends Migration
             $table->string('status')->default(Estate::AVALIABLE);
             $table->string('image');
             $table->string('description', 1000);
-            $table->string('type');//choose
+            $table->string('type');//rent sale
             $table->timestamps();
 
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');

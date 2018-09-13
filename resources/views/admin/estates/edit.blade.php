@@ -55,14 +55,14 @@
     </div>
     <div class="form-group">
         <label>العرض</label>
-        <select name="type" class="form-control" name="status">
+        <select name="type" class="form-control" id="type">
             <option value="بيع" {{ $estate->type == 'بيع' ? 'selected' : '' }}>بيع</option>
             <option value="أيجار" {{ $estate->type == 'أيجار' ? 'selected' : '' }}>أيجار</option>
         </select>
     </div>
     <div class="form-group">
-        <label>العرض</label>
-        <select name="type" class="form-control" name="status">
+        <label>الحالة</label>
+        <select name="status" class="form-control" id="status">
             <option value="1" {{ $estate->status == 1 ? 'selected' : '' }}>متوفر</option>
             <option value="0" {{ $estate->status == 0 ? 'selected' : '' }}>غير متوفر</option>
         </select>

@@ -16,7 +16,7 @@
                     <!-- Heading -->
                     <div class="content">
                         <div class="heading-caption">
-                            <h1>تجد ما الذي تبحث عنه</h1>
+                            <h1>أبحث عن عقار</h1>
                         </div>
                         <div class="search-form">
                             <form action="{{ route('search') }}" method="GET">

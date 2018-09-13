@@ -14,6 +14,7 @@ class Property extends Model
         'age',
         'salary_pdf',
         'offical_pdf',
+        'property_type',
         'type',
     ];
     

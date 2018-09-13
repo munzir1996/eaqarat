@@ -65,6 +65,7 @@
                         <th>تاريخ التعين</th>
                         <th>العمر</th>
                         <th>القبول</th>
+                        <th>نوع التمليك</th>
                         <th>العمليات</th>
                     </tr>
                 </thead>
@@ -90,6 +91,7 @@
                                 @endif
                             </form>
                         </td>
+                        <td>{{$property->property_type}}</td>
                         <td>
                             <form action="{{route('properties.destroy', $property->id)}}" method="POST">
                                 @csrf {{ method_field('DELETE') }}
@@ -203,6 +205,15 @@
             },
             'colvis'
         ],
+        filterDropDown: {									
+					columns: [
+                    {
+                        idx: 5
+                    },
+						
+					],
+                    bootstrap: true
+				}
         });
     });
     $('.fileinput').fileinput()

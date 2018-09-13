@@ -44,6 +44,10 @@
                     <div class="col-md-7 value"> {{$property->age}} </div>
                 </div>
                 <div class="row static-info">
+                    <div class="col-md-5 name"> نوع التمليك : </div>
+                    <div class="col-md-7 value"> {{$property->property_type}} </div>
+                </div>
+                <div class="row static-info">
                     <div class="col-md-5 name"> شهادة مرتب : </div>
                     <div class="col-md-7 value">
                         <a href="{{asset('file/'.$property->salary_pdf.'/'.$property->salary_pdf)}}" class="nav-link nav-toggle">

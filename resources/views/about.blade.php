@@ -44,7 +44,7 @@
                     <div class="about-us-content">
                         <div class="heading-panel">
                             <h3 class="main-title text-left">
-                                حول AdForest
+                                حول عقاري
                             </h3>
                         </div>
                         <h2></h2>

@@ -17,8 +17,13 @@ Route::get('/', function () {
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/stocks', 'StockController@index')->name('stock');
+
 Route::get('/rents', 'RentController@index')->name('rent');
+Route::get('/rents/search', 'RentController@search')->name('rent.search');
+
 Route::get('/sales', 'SaleController@index')->name('sale');
+Route::get('/sales/search', 'SaleController@search')->name('sale.search');
+
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/details/{id}', 'HomeController@detail')->name('detail');
 Route::get('/blocks', 'BlockController@create')->name('block');

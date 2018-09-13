@@ -25,6 +25,7 @@
             <div class="details">
                 <div class="number">
                     <span data-counter="counterup" data-value="{{$comments->count()}}">{{$comments->count()}}</span>
+                    <!--  -->
                 </div>
                 <div class="desc"> التعليقات  </div>
             </div>

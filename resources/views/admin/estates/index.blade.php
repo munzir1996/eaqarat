@@ -74,7 +74,7 @@
                             <span class="label label-sm label-danger"> غير متوفر </span>
                             @endif
                         </td>
-                        <td>{{$estate->type}}</td>
+                        <td> {{$estate->type}} </td>
                         <td>
                             <form action="{{route('estates.destroy', $estate->id)}}" method="POST">
                                 @csrf {{ method_field('DELETE') }}
